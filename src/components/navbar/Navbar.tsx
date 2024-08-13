@@ -4,8 +4,6 @@ import { AlignJustify } from 'lucide-react';
 import { CodeXml } from 'lucide-react';
 import { Contact } from 'lucide-react';
 
-
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +15,7 @@ import {
 
 const Navbar = () => {
   return (
-    <div className="w-full h-12 bg-white/40 rounded-md dark:bg-black/40">
+    <div className="w-full h-12 bg-white/30 rounded-lg dark:bg-black/30">
       <div className="h-full container max-w-4xl mx-auto flex justify-between items-center px-4">
         <div className="">Logo</div>
         <div className="flex items-center space-x-5">
