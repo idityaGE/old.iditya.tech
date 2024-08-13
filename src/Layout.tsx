@@ -15,7 +15,7 @@ const Layout = () => {
         </div>
         <footer>
           <Separator />
-          <p className="italic font-semibold pl-2 flex">made by
+          <p className="italic font-[500] pl-2 flex">made by
             <Link to='#intagram' className="px-2 font-bold">
               @idity_dx
             </Link>
