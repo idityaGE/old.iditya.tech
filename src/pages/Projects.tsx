@@ -1,7 +1,10 @@
+import Bento from "@/components/bento/Bento"
 
 const Projects = () => {
   return (
-    <div>Projects</div>
+    <div>
+      <Bento />
+    </div>
   )
 }
 

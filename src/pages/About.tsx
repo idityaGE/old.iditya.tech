@@ -1,7 +1,10 @@
+import { ConnectCard } from "@/components/bento/cards/connect";
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <ConnectCard />
+    </div>
   )
 }
 
