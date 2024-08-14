@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator"
 import { Link } from 'react-router-dom';
 
 const Layout = () => {
-  document.title = "Portfolio"
+  document.title = "Adii | Portfolio"
   return (
     <>
       <div className="container max-w-4xl mx-auto min-h-screen flex flex-col px-4 pt-4">
