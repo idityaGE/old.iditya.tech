@@ -3,37 +3,40 @@ import { ConnectCard } from "./cards/connect";
 import { GlobeCard } from "./cards/globe";
 import { SkillCard } from "./cards/skillcard";
 
-import {
-  BellIcon,
-  CalendarIcon,
-  FileTextIcon,
-  InputIcon,
-} from "@radix-ui/react-icons";
+import { Layers, MapPin, Link, Atom } from 'lucide-react';
+
+
 
 const features = [
   {
-    Icon: InputIcon,
-    name: "Full text search",
-    background: <SkillCard />,
-    className: "lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4",
-  },
-  {
-    Icon: FileTextIcon,
-    name: "Save your files",
+    Icon: MapPin,
+    name: "Ajmer, India",
     background: <GlobeCard />,
     className: "lg:row-start-1 lg:row-end-3 lg:col-start-3 lg:col-end-5",
   },
   {
-    Icon: CalendarIcon,
-    name: "Calendar",
-    background: <ConnectCard />,
-    className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4",
+    Icon: Layers,
+    name: "Tech Stack",
+    background: <SkillCard />,
+    className: "lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4",
   },
   {
-    Icon: BellIcon,
+    Icon: Link,
+    name: "Connect",
+    background: <ConnectCard />,
+    className: "lg:col-start-3 lg:col-end-5 lg:row-start-3 lg:row-end-4",
+  },
+  {
+    Icon: Atom,
     name: "Notifications",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4",
+    className: "lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:opacity-0 lg:flex hidden ",
+  },
+  {
+    Icon: Atom,
+    name: "Project",
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    className: "lg:col-start-1 lg:col-end-5 lg:row-start-4 lg:row-end-5",
   },
 ];
 

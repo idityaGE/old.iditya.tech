@@ -4,7 +4,7 @@ const slugs = ["typescript", "javascript", "dart", "java", "react", "flutter", "
 
 export function SkillCard() {
   return (
-    <div className="pb-6">
+    <div className="pb-6 w-96 mx-auto">
       <IconCloud iconSlugs={slugs} />
     </div>
   );
