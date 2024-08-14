@@ -1,9 +1,8 @@
-import Bento from "@/components/bento/Bento"
 
 const Projects = () => {
   return (
     <div>
-      <Bento />
+      Comming Soon...
     </div>
   )
 }
