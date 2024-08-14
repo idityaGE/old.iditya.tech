@@ -25,11 +25,13 @@ const BentoCard = ({
   className,
   background,
   Icon,
+  isIconHidden = false,
 }: {
   name: string;
   className: string;
   background: ReactNode;
   Icon: any;
+  isIconHidden?: boolean;
 }) => (
   <div
     key={name}
@@ -42,8 +44,11 @@ const BentoCard = ({
       className,
     )}
   >
-    <div className="pointer-events-none z-10 flex gap-2 p-5">
-      <Icon className="h-6 w-6 origin-left transform-gpu transition-all duration-300 ease-in-out" />
+    <div className={cn(
+      "pointer-events-none z-10 flex gap-2 p-5",
+      isIconHidden && "hidden",
+    )}>
+      <Icon className="h-6 w-6 origin-left" />
       <h3 className="text-base font-medium dark:text-neutral-300">
         {name}
       </h3>
