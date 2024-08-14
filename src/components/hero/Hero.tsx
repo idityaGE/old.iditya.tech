@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
-    <div>
+    <div className='mb-10'>
       <h1 id="name" className='text-4xl font-bold leading-12'>I'm <br /> Aditya</h1>
       <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1] pt-3'>19y/o Tech Enthusiast, India</h6>
       <div className='mt-5 xl:w-3/4'>
@@ -21,6 +21,7 @@ const Hero = () => {
           <a href="#resume" download={""} className='underline underline-offset-2 dark:hover:text-white hover:text-black duration-300 font-semibold'>Resume</a>&nbsp;&#10697;
         </h6>
       </div>
+      <h1 id="name" className='text-4xl font-bold leading-12 pt-10'>About me</h1>
     </div>
   )
 }

@@ -13,7 +13,7 @@ const Layout = () => {
         <div className="flex-grow mt-8 md:mt-16 px-2">
           <Outlet />
         </div>
-        <footer>
+        <footer className="mt-5">
           <Separator />
           <p className="italic font-[500] pl-2 flex">made by
             <Link to='#intagram' className="px-2 font-bold">
