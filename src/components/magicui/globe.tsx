@@ -5,15 +5,17 @@ import createGlobe, { COBEOptions } from "cobe";
 import { useSpring } from "react-spring";
 
 import { cn } from "@/lib/utils";
+import { useTheme } from "../theme-provider";
+import { useState } from "react";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
   height: 800,
-  onRender: () => {},
+  onRender: () => { },
   devicePixelRatio: 2,
   phi: 0,
-  theta: 0.3,
-  dark: 0,
+  theta: 0.1,
+  dark: 1,
   diffuse: 0.4,
   mapSamples: 16000,
   mapBrightness: 1.2,
@@ -21,27 +23,27 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-    { location: [14.5995, 120.9842], size: 0.03 },
-    { location: [19.076, 72.8777], size: 0.1 },
-    { location: [23.8103, 90.4125], size: 0.05 },
-    { location: [30.0444, 31.2357], size: 0.07 },
-    { location: [39.9042, 116.4074], size: 0.08 },
-    { location: [-23.5505, -46.6333], size: 0.1 },
-    { location: [19.4326, -99.1332], size: 0.1 },
-    { location: [40.7128, -74.006], size: 0.1 },
-    { location: [34.6937, 135.5022], size: 0.05 },
-    { location: [41.0082, 28.9784], size: 0.06 },
+    { location: [26.612028, 75.377394], size: 0.08 },
   ],
 };
 
 export default function Globe({
   className,
-  config = GLOBE_CONFIG,
+  config1 = GLOBE_CONFIG,
 }: {
   className?: string;
-  config?: COBEOptions;
+  config1?: COBEOptions;
 }) {
-  let phi = 0;
+  const { theme } = useTheme();
+  const [isDark, setIsDark] = useState(theme === "dark");
+
+  useEffect(() => {
+    setIsDark(theme === "dark");
+  }, [theme]);
+
+  const config = isDark ? { ...config1, dark: 1 } : { ...config1, dark: 0 };
+
+  let phi = -2.9;
   let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef(null);
@@ -71,7 +73,6 @@ export default function Globe({
 
   const onRender = useCallback(
     (state: Record<string, any>) => {
-      if (!pointerInteracting.current) phi += 0.005;
       state.phi = phi + r.get();
       state.width = width * 2;
       state.height = width * 2;
@@ -98,7 +99,7 @@ export default function Globe({
 
     setTimeout(() => (canvasRef.current!.style.opacity = "1"));
     return () => globe.destroy();
-  }, []);
+  }, [config]);  // Depend on config so it re-renders when config changes
 
   return (
     <div
