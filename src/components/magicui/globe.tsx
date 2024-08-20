@@ -5,7 +5,7 @@ import createGlobe, { COBEOptions } from "cobe";
 import { useSpring } from "react-spring";
 
 import { cn } from "@/lib/utils";
-import { useTheme } from "../theme-provider";
+import { useTheme } from "@/components/theme-provider"
 import { useState } from "react";
 
 const GLOBE_CONFIG: COBEOptions = {
@@ -41,7 +41,7 @@ export default function Globe({
     setIsDark(theme === "dark");
   }, [theme]);
 
-  const config = isDark ? { ...config1, dark: 1 } : { ...config1, dark: 0 };
+  const config = isDark ? { ...config1, dark: 1 } : { ...config1, dark: 0.1};
 
   let phi = -2.9;
   let width = 0;
