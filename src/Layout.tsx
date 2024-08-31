@@ -16,7 +16,7 @@ const Layout = () => {
         <footer className="mt-5">
           <Separator />
           <p className="italic font-[500] pl-2 flex">made by
-            <Link to='#intagram' className="px-2 font-bold">
+            <Link to='#intagram' className="px-3 font-bold hover:underline">
               @idity_dx
             </Link>
           </p>

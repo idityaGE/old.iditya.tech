@@ -11,11 +11,11 @@ const Hero = () => {
       </div>
       <div className='mt-5'>
         <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1]'>Feel free to reach me out at&nbsp;
-          <a href="https://instagram.com/idity_dx" target='_blank' className='dark:hover:text-white hover:text-black  duration-300'>@<i className='font-semibold underline underline-offset-2'><strong>idity_dx</strong></i> </a>
+          <a href="https://instagram.com/idity_dx" target='_blank' className='dark:hover:text-white hover:text-black  duration-300'>@<b className='font-semibold underline underline-offset-2'><strong>idity_dx</strong></b> </a>
           or&nbsp;
           <a href="mailto:am44910606@gmail.com?subject=Hello%20!" className='dark:hover:text-white hover:text-black  duration-300'> 
             <Mail size={18} className='inline-block' />
-            <i className='font-semibold underline underline-offset-2'><strong>adiimaurya02@gamil.com</strong></i>
+            <b className='font-semibold underline underline-offset-2'><strong>adiimaurya02@gamil.com</strong></b>
           </a>
           .
         </h6>
