@@ -15,10 +15,13 @@ const Layout = () => {
         </div>
         <footer className="mt-5">
           <Separator />
-          <p className="italic font-[500] pl-2 flex">made by
+          <p className="italic font-[500] pl-2 flex justify-between">
             <Link to='#intagram' className="px-3 font-bold hover:underline">
-              @idity_dx
+              made by @idity_dx
             </Link>
+            <p className="mt-1 text-xs">
+              This personal portfolio is still under development...
+            </p>
           </p>
         </footer>
       </div>
