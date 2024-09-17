@@ -2,28 +2,12 @@ import { Outlet } from "react-router-dom";
 import Navbar from "@/components/navbar/Navbar";
 import { Separator } from "@/components/ui/separator"
 import { Link } from 'react-router-dom';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
-import { useRef } from "react";
 
 const Layout = () => {
   document.title = "Adii | Portfolio"
-  const containerRef = useRef(null)
-
   return (
-    <LocomotiveScrollProvider
-      options={
-        {
-          smooth: true
-        }
-      }
-      watch={
-        []
-      }
-      containerRef={
-        containerRef
-      }
-    >
-      <div data-scroll-container ref={containerRef} className="container max-w-4xl mx-auto min-h-screen flex flex-col px-4 pt-4">
+    <>
+      <div className="container max-w-4xl mx-auto min-h-screen flex flex-col px-4 pt-4">
         <img src="/gradient.webp" alt="Gradient IMG" className="absolute left-0 sm:left-1/2 top-0 -z-10 -translate-x-1/2 lg:scale-100 object-cover" />
         <Navbar />
         <div className="flex-grow mt-8 md:mt-16 px-2">
@@ -41,7 +25,7 @@ const Layout = () => {
           </p>
         </footer>
       </div>
-    </LocomotiveScrollProvider>
+    </>
   )
 }
 

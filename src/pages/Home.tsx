@@ -3,7 +3,7 @@ import Bento from "@/components/bento/Bento"
 
 const Home = () => {
   return (
-    <div data-scroll-section>
+    <div>
       <Hero />
       <Bento />
     </div>
