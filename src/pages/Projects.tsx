@@ -2,9 +2,17 @@ import { ProjectCard } from "@/components/project/card/project-card"
 
 const projects = [
   {
+    title: "Assignment Code to PDF",
+    description: "Converts questions, codes and outputs to PDF with syntax highlighting. Built with Next.js, TypeScript, html2canvas, jsPDF, and Tailwind CSS.",
+    images: ["./assignment-to-pdf-project/img2.png", "./assignment-to-pdf-project/img3.png"],
+    liveLink: "https://assignment-code-to-pdf.vercel.app/",
+    githubLink: "https://github.com/idityaGE/Assignment-Code-to-PDF",
+    techStack: ["Next.js", "TypeScript", "html2canvas", "jsPDF", "Tailwind CSS", "Shadcn UI", "react-syntax-highlighter"],
+  },
+  {
     title: "Discord Clone",
     description: "Realtime chat application with voice and video call features. Built with Next js, TypeScript, and Tailwind CSS.",
-    images: ["./Discord_1.png", "./Discord_2.png", "./Discord_3.png"],
+    images: ["./discord-project/Discord_1.png", "./discord-project/Discord_2.png", "./discord-project/Discord_3.png"],
     liveLink: "https://discord-idityage.up.railway.app",
     githubLink: "https://github.com/idityaGE/discord-app",
     techStack: ["Next.js", "TypeScript", "PostgreSQL", "Socket.io", "LiveKit", "Prisma", "shadcn ui", "tanstack-query", "Uploadthing", "Clerk"],
@@ -16,7 +24,7 @@ const projects = [
     liveLink: "https://contactuspage-two.vercel.app/",
     githubLink: "https://github.com/idityaGE/Projects/tree/main/contact_us_form",
     techStack: ["Next.js", "TypeScript", "React Hook Form", "Resend", "Shadcn UI"],
-  }
+  },
 ]
 
 

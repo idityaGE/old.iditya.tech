@@ -65,7 +65,7 @@ function ImageCarousel({ images }: { images: string[] }) {
             )}
           </div>
         </DialogTrigger>
-        <DialogContent className="max-w-3xl w-full p-0">
+        <DialogContent className="max-w-7xl w-full p-0">
           <div className="relative">
             <img
               src={images[currentIndex]}

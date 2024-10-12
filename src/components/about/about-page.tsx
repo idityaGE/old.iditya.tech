@@ -11,9 +11,9 @@ export default function AboutPage() {
           <div className="md:w-1/3 flex flex-col items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-lg opacity-75"></div>
-              <Avatar className="w-48 h-48 border-4 border-background relative">
-                <img src="ava.jpg" alt="Your Avatar" className="rounded-full" />
-              </Avatar>
+                <Avatar className="w-48 h-48 border-4 border-background relative flex items-center justify-center">
+                <img src="ava.jpg" alt="Avatar" className="rounded-full" />
+                </Avatar>
             </div>
             <h1 className="text-4xl font-bold mt-6 mb-2 text-center">Aditya</h1>
             <p className="text-xl text-muted-foreground mb-4 text-center">Student / Coder</p>
