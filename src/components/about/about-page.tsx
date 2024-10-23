@@ -24,7 +24,7 @@ export default function AboutPage() {
                   <span className="sr-only">GitHub</span>
                 </Button>
               </a>
-              <a href="https://www.linkedin.com/in/aditya-maurya-b0a0b6298/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/iditya/" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>

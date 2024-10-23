@@ -10,7 +10,7 @@ type ProjectCardProps = {
   title: string
   description: string
   images: string[]
-  liveLink: string
+  liveLink?: string
   githubLink: string
   techStack: string[]
 }
@@ -119,9 +119,9 @@ function ImageCarousel({ images }: { images: string[] }) {
 
 export function ProjectCard({ title, description, images, liveLink, githubLink, techStack }: ProjectCardProps) {
   return (
-    <Card className="h-full flex flex-col bg-white/30 dark:bg-black/30">
+    <Card className="h-full flex flex-col bg-white/10 dark:bg-black/10">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className='mb-3'>{title}</CardTitle>
         <ImageCarousel images={images} />
       </CardHeader>
       <CardContent>
@@ -137,16 +137,16 @@ export function ProjectCard({ title, description, images, liveLink, githubLink, 
       </CardContent>
       <CardFooter className="mt-auto">
         <div className="flex justify-between w-full">
-          <Button asChild variant="outline" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground'>
-            <a href={liveLink} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-            </a>
-          </Button>
-          <Button asChild variant="outline" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground'>
+          <Button asChild variant="link" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground'>
             <a href={githubLink} target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-4 w-4" /> GitHub
             </a>
           </Button>
+          {liveLink && <Button asChild variant="link" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground'>
+            <a href={liveLink} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+            </a>
+          </Button>}
         </div>
       </CardFooter>
     </Card>

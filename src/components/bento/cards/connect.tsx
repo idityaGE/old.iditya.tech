@@ -21,7 +21,7 @@ export function ConnectCard() {
         </a>
         </DockIcon>
         <DockIcon className="bg-black/10 dark:bg-white/10 p-2 mb-3">
-          <a href="https://www.linkedin.com/in/aditya-maurya-b0a0b6298/" target="_blank">
+          <a href="https://www.linkedin.com/in/iditya/" target="_blank">
           <Linkedin className="size-full" />
         </a>
         </DockIcon>
