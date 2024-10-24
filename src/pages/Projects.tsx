@@ -14,6 +14,7 @@ const projects = [
     description: "PolishBot is a Discord bot designed to help users transform casual messages into polished, professional communication.",
     images: ["./polishbot/img2.png", "./polishbot/img1.png"],
     githubLink: "https://github.com/idityaGE/PolishBot",
+    liveLink: "https://discord.com/oauth2/authorize?client_id=1298776826151436430&permissions=8&integration_type=0&scope=bot",
     techStack: ["Node.js", "TypeScript", "Discord.js", "Gemini-API"],
   },
   {
