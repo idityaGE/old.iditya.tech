@@ -10,6 +10,13 @@ const projects = [
     techStack: ["Next.js", "TypeScript", "html2canvas", "jsPDF", "Tailwind CSS", "Shadcn UI", "react-syntax-highlighter"],
   },
   {
+    title: "Polish Bot",
+    description: "PolishBot is a Discord bot designed to help users transform casual messages into polished, professional communication.",
+    images: ["./polishbot/img2.png", "./polishbot/img1.png"],
+    githubLink: "https://github.com/idityaGE/PolishBot",
+    techStack: ["Node.js", "TypeScript", "Discord.js", "Gemini-API"],
+  },
+  {
     title: "Discord Clone",
     description: "Realtime chat application with voice and video call features. Built with Next js, TypeScript, and Tailwind CSS.",
     images: ["./discord-project/Discord_1.png", "./discord-project/Discord_2.png", "./discord-project/Discord_3.png"],
