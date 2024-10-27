@@ -35,7 +35,7 @@ function ImageCarousel({ images }: { images: string[] }) {
             <img
               src={images[currentIndex]}
               alt={`Project image ${currentIndex + 1}`}
-              className="w-full h-48 object-fit rounded-md"
+              className="w-full h-48 object-contain rounded-md"
             />
             {images.length > 1 && (
               <div className="absolute inset-0 flex items-center justify-between pointer-events-none">
