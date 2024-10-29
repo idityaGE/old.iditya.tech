@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <>
       <div className="container max-w-4xl mx-auto min-h-screen flex flex-col px-4 pt-4">
-        <img src="/gradient.webp" alt="Gradient IMG" className="absolute left-0 sm:left-1/2 top-0 -z-10 -translate-x-1/2 lg:scale-100 object-cover" />
+        <img src="https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213921/gradient_zecf4g.webp" alt="Gradient IMG" className="absolute left-0 sm:left-1/2 top-0 -z-10 -translate-x-1/2 lg:scale-100 object-cover" />
         <Navbar />
         <div className="flex-grow mt-8 md:mt-16 px-2">
           <Outlet />
