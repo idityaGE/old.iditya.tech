@@ -1,0 +1,175 @@
+{
+  "name": "Aditya",
+  "nickname": "Adii",
+  "logo": "",
+  "description": "I'm a software developer based in India. I have a passion for developing software that improves the lives of those around me. I specialize in building web applications and have professional experience working with JavaScript, TypeScript, React, and Node.js.",
+  "title": "Student / Coder",
+  "avatar": "./ava.jpg",
+  "favicon": "./favicon.ico",
+  "age": 19,
+  "about": [
+    "Hello! I'm a passionate developer with a keen interest in creating elegant and efficient solutions. With a strong foundation in computer science and years of hands-on experience, I specialize in full-stack development, focusing on modern web technologies.",
+    "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through blog posts and community meetups. I'm always excited about new challenges and opportunities to grow both personally and professionally."
+  ],
+  "address": {
+    "city": "Ajmer",
+    "state": "Rajasthan",
+    "country": "India",
+    "pincode": "305817",
+    "longitude": 75.377394,
+    "latitude": 26.612028
+  },
+  "skills": [
+    "typescript",
+    "javascript",
+    "c",
+    "cplusplus",
+    "java",
+    "react",
+    "html5",
+    "css3",
+    "nodedotjs",
+    "express",
+    "nextdotjs",
+    "prisma",
+    "amazonaws",
+    "postgresql",
+    "nginx",
+    "vercel",
+    "testinglibrary",
+    "docker",
+    "git",
+    "github",
+    "visualstudiocode",
+    "figma",
+    "kubernetes",
+    "appwrite",
+    "rust",
+    "python",
+    "mysql",
+    "mongodb",
+    "redux",
+    "redis",
+    "sass",
+    "tailwindcss",
+    "turborepo",
+    "apachekafka",
+    "gnubash",
+    "cloudflare",
+    "socketdotio",
+    "replit",
+    "recoil",
+    "supabase",
+    "linux",
+    "swagger",
+    "greensock",
+    "threedotjs",
+    "eslint",
+    "webrtc",
+    "webpack",
+    "shadcnui"
+  ],
+  "socials": {
+    "instagram": {
+      "username": "idity_dx",
+      "link": "https://www.instagram.com/idity_dx/"
+    },
+    "twitter": "https://twitter.com/am44910606",
+    "github": "https://github.com/idityaGE",
+    "linkedin": "https://www.linkedin.com/in/iditya/",
+    "gmail": "adiimaurya02@gamil.com",
+    "mail": "mailto:am44910606@gmail.com?subject=Hello%20!"
+  },
+  "projects": [
+    {
+      "title": "Assignment Code to PDF",
+      "description": "Converts questions, codes and outputs to PDF with syntax highlighting. Built with Next.js, TypeScript, html2canvas, jsPDF, and Tailwind CSS.",
+      "images": [
+        "./assignment-to-pdf-project/img2.png",
+        "./assignment-to-pdf-project/img3.png"
+      ],
+      "liveLink": "https://assignment-code-to-pdf.vercel.app/",
+      "githubLink": "https://github.com/idityaGE/Assignment-Code-to-PDF",
+      "techStack": [
+        "Next.js",
+        "TypeScript",
+        "html2canvas",
+        "jsPDF",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "react-syntax-highlighter"
+      ]
+    },
+    {
+      "title": "Polish Bot",
+      "description": "PolishBot is a Discord bot designed to help users transform casual messages into polished, professional communication.",
+      "images": [
+        "./polishbot/img2.png",
+        "./polishbot/img1.png"
+      ],
+      "githubLink": "https://github.com/idityaGE/PolishBot",
+      "liveLink": "https://discord.com/oauth2/authorize?client_id=1298776826151436430&permissions=8&integration_type=0&scope=bot",
+      "techStack": [
+        "Node.js",
+        "TypeScript",
+        "Discord.js",
+        "Gemini-API"
+      ]
+    },
+    {
+      "title": "Discord Clone",
+      "description": "Realtime chat application with voice and video call features. Built with Next js, TypeScript, and Tailwind CSS.",
+      "images": [
+        "./discord-project/Discord_1.png",
+        "./discord-project/Discord_2.png",
+        "./discord-project/Discord_3.png"
+      ],
+      "liveLink": "https://discord-idityage.up.railway.app",
+      "githubLink": "https://github.com/idityaGE/discord-app",
+      "techStack": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Socket.io",
+        "LiveKit",
+        "Prisma",
+        "shadcn ui",
+        "tanstack-query",
+        "Uploadthing",
+        "Clerk"
+      ]
+    },
+    {
+      "title": "Contact Form",
+      "description": "A contact form that sends an email to the website owner. Built with Next.js, TypeScript, and Tailwind CSS.",
+      "images": [
+        "./contact-form/contact.png"
+      ],
+      "liveLink": "https://contactuspage-two.vercel.app/",
+      "githubLink": "https://github.com/idityaGE/Projects/tree/main/contact_us_form",
+      "techStack": [
+        "Next.js",
+        "TypeScript",
+        "React Hook Form",
+        "Resend",
+        "Shadcn UI"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "year": "2023 ...",
+      "title": "Bachelor's Degree in Computer Science & Engineering",
+      "institution": "Central University of Rajasthan",
+      "location": "Ajmer, Rajasthan",
+      "link": "https://www.curaj.ac.in/"
+    },
+    {
+      "year": "2018 - 2022",
+      "title": "High School & Intermediate",
+      "institution": "Chandra Public School",
+      "location": "Mau, Uttar Pradesh",
+      "link": "https://cpsmau.com"
+    }
+  ]
+}

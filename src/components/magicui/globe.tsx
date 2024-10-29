@@ -7,6 +7,7 @@ import { useSpring } from "react-spring";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider"
 import { useState } from "react";
+import Data from "@/config/Data.json";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -23,7 +24,7 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-    { location: [26.612028, 75.377394], size: 0.08 },
+    { location: [Data.address.latitude, Data.address.longitude], size: 0.08 },
   ],
 };
 

@@ -1,6 +1,7 @@
 import IconCloud from "@/components/magicui/icon-cloud";
+import Data from "@/config/Data.json";
 
-const slugs = ["typescript", "javascript", "c", "cplusplus", "java", "react", "html5", "css3", "nodedotjs", "express", "nextdotjs", "prisma", "amazonaws", "postgresql", "nginx", "vercel", "testinglibrary", "docker", "git", "github", "visualstudiocode", "figma", "kubernetes", "appwrite", "rust", "python", "mysql", "mongodb", "redux", "redis", "sass", "tailwindcss", "turborepo", "apachekafka", "gnubash", "cloudflare", "socketdotio", "replit", "recoil", "supabase", "linux", "swagger", "greensock", "threedotjs", "eslint", "webrtc", "webpack", "shadcnui",   ];
+const slugs = [...Data.skills];
 
 export function SkillCard() {
   return (

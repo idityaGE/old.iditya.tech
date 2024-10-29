@@ -1,21 +1,22 @@
 import { Mail } from "lucide-react"
+import Data from "@/config/Data.json"
 
 
 const Hero = () => {
   return (
     <div className='mb-10'>
-      <h1 id="name" className='text-4xl font-bold leading-12'>I'm <br /> Aditya</h1>
-      <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1] pt-3'>19y/o Tech Enthusiast, India</h6>
+      <h1 id="name" className='text-4xl font-bold leading-12'>I'm <br /> {Data.name}</h1>
+      <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1] pt-3'>{Data.age}y/o Tech Enthusiast, {Data.address.country}</h6>
       <div className='mt-5 xl:w-3/4'>
-        <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1]'>I'm a software developer based in India. I have a passion for developing software that improves the lives of those around me. I specialize in building web applications and have professional experience working with JavaScript, TypeScript, React, and Node.js.</h6>
+        <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1]'>{Data.description}</h6>
       </div>
       <div className='mt-5'>
         <h6 className='text-base text-[#52525B] dark:text-[#A1A1A1]'>Feel free to reach me out at&nbsp;
-          <a href="https://instagram.com/idity_dx" target='_blank' className='dark:hover:text-white hover:text-black  duration-300'>@<b className='font-semibold underline underline-offset-2'><strong>idity_dx</strong></b> </a>
+          <a href={Data.socials.instagram.link} target='_blank' className='dark:hover:text-white hover:text-black  duration-300'>@<b className='font-semibold underline underline-offset-2'><strong>{Data.socials.instagram.username}</strong></b> </a>
           or&nbsp;
-          <a href="mailto:am44910606@gmail.com?subject=Hello%20!" className='dark:hover:text-white hover:text-black  duration-300'> 
+          <a href={Data.socials.mail} className='dark:hover:text-white hover:text-black  duration-300'>
             <Mail size={18} className='inline-block' />
-            <b className='font-semibold underline underline-offset-2'><strong>adiimaurya02@gamil.com</strong></b>
+            <b className='font-semibold underline underline-offset-2'><strong>{Data.socials.gmail}</strong></b>
           </a>
           .
         </h6>
