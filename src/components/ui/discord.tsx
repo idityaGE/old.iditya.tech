@@ -93,6 +93,8 @@ const Discord: React.FC<TDiscord> = ({
     setActivityDetails,
   });
 
+  data
+
   // const getData = async (url: string) => {
   //   const response = await fetch(url);
   //   const data = await response.json();
