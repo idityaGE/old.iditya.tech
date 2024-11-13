@@ -6,4 +6,5 @@ export type ProjectCardProps = {
   liveLink?: string
   githubLink: string
   techStack: string[]
+  slug: string
 }

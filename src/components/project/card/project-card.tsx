@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
 
-export function ProjectCard({ title, description, images, liveLink, githubLink, techStack }: ProjectCardProps) {
+export function ProjectCard({ title, description, images, liveLink, githubLink, techStack, slug }: ProjectCardProps) {
   return (
     <div className="flex p-3 flex-col-reverse justify-between gap-2 rounded-xl border overflow-hidden md:flex-row">
       <div className="space-y-2 w-full tablet:w-3/5">
-        <Link to={`/projects/${title}`} className="space-y-2 group/link">
+        <Link to={`/projects/${slug}`} className="space-y-2 group/link">
           <div className="inline-flex items-center gap-1">
             <div className="flex items-center gap-2 flex-wrap">
               <h1 className="text-xl font-bold font-heading">{title}</h1>
@@ -45,7 +45,7 @@ export function ProjectCard({ title, description, images, liveLink, githubLink, 
         </div>
       </div>
       <div className="w-full py-3 md:w-3/5 aspect-video overflow-hidden hover:border duration-100 transition-all transform-gpu ease-in-out rounded-xl scale-100 hover:scale-105 ">
-        <Link to={`/projects/${title}`}>
+        <Link to={`/projects/${slug}`}>
           <img
             src={images[0]}
             width={250}
