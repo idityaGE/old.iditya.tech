@@ -47,7 +47,7 @@ export default function AboutPage() {
           </div>
           <div className="md:w-2/3">
             <h2 className="text-2xl font-bold mb-4">About Me</h2>
-            <div className="space-y-4 text-zinc-800 dark:text-zinc-400">
+            <div className="space-y-4 text-muted-foreground">
               <p className="leading-relaxed">
                 {Data.about[0]}
               </p>
