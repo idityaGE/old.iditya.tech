@@ -25,7 +25,7 @@ export function ProjectCard({ title, description, images, liveLink, githubLink, 
           {techStack.map((tag) => (
             <p
               key={tag}
-              className="px-2 py-1 rounded bg-muted text-muted-foreground text-xs cursor-pointer"
+              className="px-2 py-1 rounded bg-muted text-muted-foreground text-xs cursor-default"
             >
               {tag}
             </p>
