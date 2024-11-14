@@ -18,6 +18,7 @@ const MyPage: React.FC = () => {
 youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
 ## Code Example
+**hello.ts**
 \`\`\`typescript
 interface User {
   name: string;
@@ -29,6 +30,14 @@ const user: User = {
   age: 25
 };
 \`\`\`
+
+## Image Example
+![React Logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)
+
+## List Example
+- Item 1
+- Item 2
+- Item 3
   `;
 
   return (
