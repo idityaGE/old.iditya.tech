@@ -11,15 +11,17 @@ const MarkdownFile: React.FC<MarkdownFileProps> = ({ filePath, className }) => {
   const [content, setContent] = useState<string>('');
 
   useEffect(() => {
-    fetch(`/content/${filePath}.md`)
-      .then((response) => response.text())
-      .then((text) => {
+    async function fetchMarkdownFile() {
+      try {
+        const response = await fetch(`/src/content/${filePath}.md`);
+        const text = await response.text();
         setContent(text);
-      })
-      .catch((err) => {
-        console.error('Error loading markdown file:', err);
-        setContent('Error loading content');
-      });
+      } catch (error) {
+        console.error('Error fetching markdown file:', error)
+      }
+    }
+
+    fetchMarkdownFile();
   }, [filePath]);
 
   return <MarkdownRenderer content={content} className={className} />;
