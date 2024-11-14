@@ -19,16 +19,11 @@ youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
 ## Code Example
 **hello.ts**
-\`\`\`typescript
-interface User {
-  name: string;
-  age: number;
-}
+\`\`\`js
+console.log('Hello, World!');
+const add = (a: number, b: number): number => a + b;
+console.log(add(5, 3));
 
-const user: User = {
-  name: "John",
-  age: 25
-};
 \`\`\`
 
 ## Image Example
@@ -38,6 +33,26 @@ const user: User = {
 - Item 1
 - Item 2
 - Item 3
+
+## Numbered List Example
+1. First item
+2. Second item
+3. Third item
+
+## Link Example
+[title](https://www.example.com)
+
+## Task List Example
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
+~~The world is flat.~~
+
+term
+: definition
+
+> blockquote
   `;
 
   return (

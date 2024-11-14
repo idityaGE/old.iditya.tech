@@ -1,6 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 import React from 'react';
+import 'highlight.js/styles/github-dark.css';
 
 type MarkdownComponentProps = {
   node?: any;
@@ -114,11 +115,12 @@ const components: CustomComponents = {
 
   // Code blocks with theme support
   code: ({ node, inline, className, children, ...props }: MarkdownComponentProps) => {
-    const match = /language-(\w+)/.exec(className || '');
+    // const match = /language-(\w+)/.exec(className || '');
     return inline ? (
       <code className={cn(
         "relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm",
-        "bg-muted text-muted-foreground"
+        "bg-muted text-muted-foreground",
+        className // Add this to preserve the language class
       )} {...props}>
         {children}
       </code>
@@ -127,7 +129,7 @@ const components: CustomComponents = {
         "mb-4 mt-4 overflow-x-auto rounded-lg p-4",
         "bg-muted font-mono text-sm"
       )}>
-        <code className={`language-${match?.[1] || ''}`} {...props}>
+        <code className={cn(className, 'hljs')} {...props}>
           {children}
         </code>
       </pre>
