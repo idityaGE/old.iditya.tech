@@ -1,3 +1,4 @@
+export const exampleMd = `
 # TypeScript Markdown Example
 
 ## Table Example
@@ -11,11 +12,11 @@ youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
 ## Code Example
 **hello.ts**
-```js
+\`\`\`js
 console.log('Hello, World!');
 const add = (a: number, b: number): number => a + b;
 console.log(add(5, 3));
-```
+\`\`\`
 
 ## Image Example
 ![React Logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)
@@ -44,3 +45,4 @@ term
 : definition
 
 > blockquote
+`
