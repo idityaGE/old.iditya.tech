@@ -129,7 +129,7 @@ const components: CustomComponents = {
         "mb-4 mt-4 overflow-x-auto rounded-lg p-4",
         "bg-muted font-mono text-sm"
       )}>
-        <code className={cn(className, 'hljs')} {...props}>
+        <code className={cn(className, 'hljs', "rounded-lg")} {...props}>
           {children}
         </code>
       </pre>

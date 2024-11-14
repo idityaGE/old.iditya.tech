@@ -16,7 +16,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
     <Card className={cn(
       "w-full max-w-4xl mx-auto p-6",
       "prose prose-stone dark:prose-invert",
-      "bg-transparent",
+      "bg-transparent border-none",
       className
     )}>
       <div className="max-w-none">

@@ -2,7 +2,7 @@
 // import React from 'react'
 
 import React from 'react';
-import MarkdownRenderer from '@/components/md/MarkdownRender';
+import MarkdownRenderer from '@/components/md/MarkdownRenderer';
 
 const MyPage: React.FC = () => {
   const markdownContent = `
