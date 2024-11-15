@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useState } from "react";
 
 
 const Navbar = () => {
@@ -57,14 +58,20 @@ const Navbar = () => {
 export default Navbar
 
 const DropdownNav = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleStateChange = () => {
+    setOpen(false)
+  }
+
   return (
     <>
-      <DropdownMenu>
+      <DropdownMenu open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger>
           <AlignJustify />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={handleStateChange}>
             <Link to="/projects" className="font-bold">
               <div className="flex gap-1">
                 <CodeXml />
@@ -73,7 +80,7 @@ const DropdownNav = () => {
             </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={handleStateChange}>
             <Link to="/about" className="font-bold">
               <div className="flex gap-1">
                 <Contact />

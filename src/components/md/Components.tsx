@@ -85,17 +85,17 @@ const components: CustomComponents = {
   // Headers with theme-aware styles
   h1: ({ node, ...props }: MarkdownComponentProps) =>
     <h1 className={cn(
-      "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4 mt-6",
+      "scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl mb-4 mt-6",
       "text-foreground"
     )} {...props} />,
   h2: ({ node, ...props }: MarkdownComponentProps) =>
     <h2 className={cn(
-      "scroll-m-20 text-3xl font-semibold tracking-tight mb-3 mt-5",
+      "scroll-m-20 text-2xl font-semibold tracking-tight mb-3 mt-5",
       "text-foreground"
     )} {...props} />,
   h3: ({ node, ...props }: MarkdownComponentProps) =>
     <h3 className={cn(
-      "scroll-m-20 text-2xl font-semibold tracking-tight mb-2 mt-4",
+      "scroll-m-20 text-xl font-semibold tracking-tight mb-2 mt-4",
       "text-foreground"
     )} {...props} />,
 

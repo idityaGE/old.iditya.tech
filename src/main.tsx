@@ -25,7 +25,7 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider
-      defaultTheme='light'
+      defaultTheme='dark'
       storageKey='theme'
     >
       <RouterProvider router={router} />

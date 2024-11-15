@@ -14,7 +14,7 @@ interface MarkdownRendererProps {
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className = '' }) => {
   return (
     <Card className={cn(
-      "w-full max-w-4xl mx-auto p-6",
+      "w-full mx-auto",
       "prose prose-stone dark:prose-invert",
       "bg-transparent border-none",
       className
