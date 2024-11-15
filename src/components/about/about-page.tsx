@@ -1,8 +1,18 @@
+
 import { Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Badge } from "@/components/ui/badge"
+import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
 import Data from "@/config/Data.json"
+import { EducationList } from "./EducationSection"
+
+const skills = {
+  Frontend: ["React", "Next.js", "TailwindCSS", "SCSS", "Headless UI", "ShadCN UI", "Framer Motion", "GSAP", "Redux", "Recoil", "Zustand", "SWR", "Tanstack Query", "Tanstack Router", "React Hook Form", "Jest", "Vitest", "Cypress", "Playwright", "Storybook"],
+  "Javascript runtime": ["Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker"],
+  Backend: ["Hono.js", "Express.js", "Fastapi", "Flask", "Go", "Fiber", "Mux"],
+  Firmware: ["C", "C++", "Go", "Rust", "Python", "Javascript"],
+  DevOps: ["AWS", "GCP", "Docker", "Kubernetes"]
+};
 
 export default function AboutPage() {
   return (
@@ -59,6 +69,24 @@ export default function AboutPage() {
         </div>
 
         <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-4">Skills</h2>
+          <div className="space-y-2">
+            {Object.entries(skills).map(([category, skillList]) => (
+              <div key={category}>
+                <div className="flex flex-wrap gap-1">
+                  <h3 className="text-md font-semibold mb-1">{category}: </h3>
+                  {skillList.map((skill) => (
+                    <Badge key={skill} variant="secondary" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-12">
           <h2 className="text-2xl font-bold mb-4">Education</h2>
           <ol className="relative border-l border-primary/30 space-y-8 pl-5">
             {Data.education.map((item, index) => (
@@ -68,39 +96,5 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
-  )
-}
-
-type EducationListProps = {
-  year: string
-  title: string
-  institution: string,
-  location: string
-  link?: string
-}
-
-const EducationList = ({
-  year,
-  title,
-  institution,
-  location,
-  link
-}: EducationListProps) => {
-  return (
-    <li>
-      <div className="absolute w-3 h-3 bg-primary rounded-full mt-1.5 -left-1.5 border border-background"></div>
-      <time className="mb-1 text-sm font-normal leading-none text-primary/80">{year}</time>
-      <h3 className="text-lg font-semibold mt-2">{title}</h3>
-      <p className="text-base text-muted-foreground">
-        {link ? (
-          <Link target="_blank" to={link} className="hover:text-primary transition-colors">
-            {institution}
-          </Link>
-        ) : (
-          institution
-        )}
-        , {location}
-      </p>
-    </li>
   )
 }
