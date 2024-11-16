@@ -113,6 +113,13 @@ const components: CustomComponents = {
   li: ({ node, ...props }: MarkdownComponentProps) =>
     <li className="leading-7" {...props} />,
 
+  blockquote: ({ node, ...props }: MarkdownComponentProps) => (
+    <blockquote className={cn(
+      "mt-6 border-l-2 pl-6 italic",
+      "border-muted-foreground text-muted-foreground"
+    )} {...props} />
+  ),
+
   // Code blocks with theme support
   code: ({ node, inline, className, children, ...props }: MarkdownComponentProps) => {
     // const match = /language-(\w+)/.exec(className || '');
@@ -152,12 +159,6 @@ const components: CustomComponents = {
   td: ({ children }: MarkdownComponentProps) =>
     <TableCell>{children}</TableCell>,
 
-  blockquote: ({ node, ...props }: MarkdownComponentProps) => (
-    <blockquote className={cn(
-      "mt-6 border-l-2 pl-6 italic",
-      "border-muted-foreground text-muted-foreground"
-    )} {...props} />
-  ),
 
   a: ({ node, href, ...props }: MarkdownComponentProps & { href?: string }) => (
     <a
