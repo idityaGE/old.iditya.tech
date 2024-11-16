@@ -1,43 +1,90 @@
 import React, { useEffect, useState } from 'react';
 import MarkdownRenderer from '@/components/md/MarkdownRenderer';
 import { useLocation } from 'react-router-dom';
-// import { exampleMd } from '@/content/example';
+
+interface ContentState {
+  content: string;
+  status: 'loading' | 'success' | 'error';
+  error?: Error;
+}
+
+const initialState: ContentState = {
+  content: '',
+  status: 'loading'
+};
 
 const MyPage: React.FC = () => {
-  const [mdContent, setMdContent] = useState(``)
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState<any>(null);
+  const [state, setState] = useState<ContentState>(initialState);
+  const fileName = useLocation().pathname.split('/').pop();
 
-  const location = useLocation();
-  const fileName = location.pathname.split('/').pop();
   useEffect(() => {
-    async function fetchMd() {
+    let mounted = true;
+
+    const loadContent = async () => {
       try {
-        const content = await import(/* @vite-ignore */ `/src/content/${fileName}.ts`);
-        setMdContent(content.default);
-        setIsLoaded(true);
-      } catch (error: any) {
-        setError(error);
+        // Using Vite's glob import feature
+        const modules: any = import.meta.glob('/src/content/*.ts');
+        const matchingPath = `/src/content/${fileName}.ts`;
+        const moduleLoader = modules[matchingPath];
+
+        if (!moduleLoader) {
+          throw new Error(`No content found for "${fileName}"`);
+        }
+
+        const module = await moduleLoader();
+
+        if (mounted) {
+          setState({
+            content: module.default,
+            status: 'success'
+          });
+        }
+      } catch (err) {
+        if (mounted) {
+          setState({
+            content: '',
+            status: 'error',
+            error: err instanceof Error ? err : new Error('Failed to load content')
+          });
+        }
       }
-    }
-    fetchMd();
+    };
+
+    loadContent();
 
     return () => {
-      setMdContent('');
+      mounted = false;
+      setState(initialState);
+    };
+  }, [fileName]);
+
+  const renderContent = () => {
+    switch (state.status) {
+      case 'loading':
+        return (
+          <div className="flex items-center justify-center p-4">
+            <div className="animate-pulse">Loading...</div>
+          </div>
+        );
+
+      case 'error':
+        return (
+          <div className="text-red-600 p-4">
+            <h2 className="text-lg font-semibold mb-2">Error Loading Content</h2>
+            <p>{state.error?.message}</p>
+          </div>
+        );
+
+      case 'success':
+        return (
+          <div className="markdown-container">
+            <MarkdownRenderer content={state.content} />
+          </div>
+        );
     }
-  }, [location.pathname]);
+  };
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <div className=''>
-      <MarkdownRenderer content={mdContent} />
-    </div>
-  );
+  return <div className="min-h-screen">{renderContent()}</div>;
 };
 
 export default MyPage;
