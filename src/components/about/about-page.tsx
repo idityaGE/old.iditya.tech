@@ -1,17 +1,35 @@
 
 import { Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
+import { Github, Linkedin, Twitter, Mail, Library } from 'lucide-react'
 import Data from "@/config/Data.json"
 import { EducationList } from "./EducationSection"
 
 const skills = {
-  Frontend: ["React", "Next.js", "TailwindCSS", "SCSS", "Headless UI", "ShadCN UI", "Framer Motion", "GSAP", "Redux", "Recoil", "Zustand", "SWR", "Tanstack Query", "Tanstack Router", "React Hook Form", "Jest", "Vitest", "Cypress", "Playwright", "Storybook"],
-  "Javascript runtime": ["Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker"],
-  Backend: ["Hono.js", "Express.js", "Fastapi", "Flask", "Go", "Fiber", "Mux"],
-  Firmware: ["C", "C++", "Go", "Rust", "Python", "Javascript"],
-  DevOps: ["AWS", "GCP", "Docker", "Kubernetes"]
+  Librarys: [
+    "React", "Next.js", "TailwindCSS", "SCSS", "ShadCN UI", "Redux", "Recoil", "turborepo", "Greensock", "Three.js", "ESLint", "Webpack", "Vitest", "Jest", "Cypress"
+  ],
+  "Javascript runtime": [
+    "Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker", "Socket.io"
+  ],
+  Backend: [
+    "Hono js", "Express", "Fastapi", "Flask", "Go", "Appwrite", "Supabase", "Swagger"
+  ],
+  Database: [
+    "PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis"
+  ],
+  ORM: [
+    "Prisma", "Mongoose", "Drizzle"
+  ],
+  DevOps: [
+    "AWS", "GCP", "Docker", "Kubernetes", "Vercel", "Cloudflare", "Netlify", "GitHub Actions", "GitLab CI/CD", "Nginx", "Apache Kafka"
+  ],
+  Tools: [
+    "Git", "GitHub", "Visual Studio Code", "Linux", "Gnu Bash", "WebRTC"
+  ],
+  Languages: [
+    "TypeScript", "JavaScript", "Go", "C", "C++", "Java", "Rust", "Python"
+  ]
 };
 
 export default function AboutPage() {
@@ -57,28 +75,31 @@ export default function AboutPage() {
           </div>
           <div className="md:w-2/3">
             <h2 className="text-2xl font-bold mb-4">About Me</h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p className="leading-relaxed">
-                {Data.about[0]}
-              </p>
-              <p className="leading-relaxed">
-                {Data.about[1]}
-              </p>
+            <div className="space-y-4">
+              {Data.about.map((paragraph, index) => (
+                <p key={index} className="leading-relaxed text-muted-foreground">
+                  {paragraph.split(':').length > 1 ? <span className="font-bold dark:text-white">{paragraph.split(':')[0]}:</span> : null}
+                  {paragraph.split(':').length > 1 ? paragraph.split(':').slice(1) : paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-4">Skills</h2>
-          <div className="space-y-2">
+          <div className="space-y-3 pl-3">
             {Object.entries(skills).map(([category, skillList]) => (
               <div key={category}>
                 <div className="flex flex-wrap gap-1">
-                  <h3 className="text-md font-semibold mb-1">{category}: </h3>
+                  <h3 className="text-md font-bold">{category}: </h3>
                   {skillList.map((skill) => (
-                    <Badge key={skill} variant="secondary" className="bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <p
+                      key={skill}
+                      className="px-1 py-1 rounded bg-muted text-muted-foreground text-xs cursor-default"
+                    >
                       {skill}
-                    </Badge>
+                    </p>
                   ))}
                 </div>
               </div>
