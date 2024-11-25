@@ -13,12 +13,14 @@ import ProjectPage from './pages/ProjectPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="projects" element={<Projects />} />
+    <>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="projects" element={<Projects />} />
+      </Route>
       <Route path='/projects/:slug' element={<ProjectPage />} />
-    </Route>
+    </>
   )
 )
 

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import MarkdownRenderer from '@/components/md/MarkdownRenderer';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import Data from "@/config/Data.json"
+import { ProjectCard2 } from '@/components/project/card2/project-page-card';
+
 
 interface ContentState {
   content: string;
@@ -16,6 +20,9 @@ const initialState: ContentState = {
 const MyPage: React.FC = () => {
   const [state, setState] = useState<ContentState>(initialState);
   const fileName = useLocation().pathname.split('/').pop();
+  const project = Data.projects.find(project => project.slug.toString() == fileName)
+  console.log(project)
+
 
   useEffect(() => {
     let mounted = true;
@@ -84,7 +91,34 @@ const MyPage: React.FC = () => {
     }
   };
 
-  return <div className="min-h-screen">{renderContent()}</div>;
+  return (
+    <>
+      <main className="relative w-full lg:h-screen p-0 sm:p-5">
+        <div className="w-full h-full rounded-2xl sm:border flex flex-wrap justify-between lg:divide-x">
+          <div className="relative w-full lg:w-2/5 p-2 md:p-8">
+            <div className="flex justify-between mb-4">
+              <Link to="/projects" className="group/back text-xs">
+                <ArrowLeft
+                  size={24}
+                  className="group-hover/back:-translate-x-1 transition-transform transform-gpu duration-100 ease-in-out"
+                />
+              </Link>
+              {/* <p className="px-2 py-1 text-xs rounded bg-secondary">
+                {new Date(project.date).toDateString()}
+              </p> */}
+            </div>
+            {project && <ProjectCard2 {...project} />}
+          </div>
+          <div
+            id="tab-section"
+            className="relative w-full lg:h-full lg:w-3/5 p-2 md:p-8 overflow-y-scroll"
+          >
+            <div className="min-h-screen">{renderContent()}</div>
+          </div>
+        </div>
+      </main>
+    </>
+  )
 };
 
 export default MyPage;

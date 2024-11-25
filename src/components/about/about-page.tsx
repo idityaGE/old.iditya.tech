@@ -1,7 +1,6 @@
-
 import { Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Mail, Library } from 'lucide-react'
+import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
 import Data from "@/config/Data.json"
 import { EducationList } from "./EducationSection"
 
