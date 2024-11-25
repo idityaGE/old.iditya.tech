@@ -21,8 +21,6 @@ const MyPage: React.FC = () => {
   const [state, setState] = useState<ContentState>(initialState);
   const fileName = useLocation().pathname.split('/').pop();
   const project = Data.projects.find(project => project.slug.toString() == fileName)
-  console.log(project)
-
 
   useEffect(() => {
     let mounted = true;
@@ -93,7 +91,7 @@ const MyPage: React.FC = () => {
 
   return (
     <>
-      <main className="relative w-full lg:h-screen p-0 sm:p-5">
+      <main className="relative w-full lg:h-screen p-4 sm:p-5">
         <div className="w-full h-full rounded-2xl sm:border flex flex-wrap justify-between lg:divide-x">
           <div className="relative w-full lg:w-2/5 p-2 md:p-8">
             <div className="flex justify-between mb-4">
