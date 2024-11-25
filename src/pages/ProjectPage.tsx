@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import MarkdownRenderer from '@/components/md/MarkdownRenderer';
 import { useLocation, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import Data from "@/config/Data.json"
 import { ProjectCard2 } from '@/components/project/card2/project-page-card';
-
+import { ProjectData } from '@/config/project.config';
 
 interface ContentState {
   content: string;
@@ -20,7 +19,7 @@ const initialState: ContentState = {
 const MyPage: React.FC = () => {
   const [state, setState] = useState<ContentState>(initialState);
   const fileName = useLocation().pathname.split('/').pop();
-  const project = Data.projects.find(project => project.slug.toString() == fileName)
+  const project = ProjectData.find(project => project.slug.toString() == fileName)
 
   useEffect(() => {
     let mounted = true;

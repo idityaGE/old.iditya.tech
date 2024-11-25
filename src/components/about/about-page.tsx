@@ -1,35 +1,12 @@
 import { Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
-import Data from "@/config/Data.json"
 import { EducationList } from "./EducationSection"
+import { skillList } from "@/config/skill.config"
 
-const skills = {
-  Librarys: [
-    "React", "Next.js", "TailwindCSS", "SCSS", "ShadCN UI", "Redux", "Recoil", "turborepo", "Greensock", "Three.js", "ESLint", "Webpack", "Vitest", "Jest", "Cypress"
-  ],
-  "Javascript runtime": [
-    "Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker", "Socket.io"
-  ],
-  Backend: [
-    "Hono js", "Express", "Fastapi", "Flask", "Go", "Appwrite", "Supabase", "Swagger"
-  ],
-  Database: [
-    "PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis"
-  ],
-  ORM: [
-    "Prisma", "Mongoose", "Drizzle"
-  ],
-  DevOps: [
-    "AWS", "GCP", "Docker", "Kubernetes", "Vercel", "Cloudflare", "Netlify", "GitHub Actions", "GitLab CI/CD", "Nginx", "Apache Kafka"
-  ],
-  Tools: [
-    "Git", "GitHub", "Visual Studio Code", "Linux", "Gnu Bash", "WebRTC"
-  ],
-  Languages: [
-    "TypeScript", "JavaScript", "Go", "C", "C++", "Java", "Rust", "Python"
-  ]
-};
+import { LinkData } from "@/config/links.config"
+import { PersonalData } from "@/config/personal.config"
+import { EducationData } from "@/config/education.config"
 
 export default function AboutPage() {
   return (
@@ -40,32 +17,32 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-lg opacity-75"></div>
               <Avatar className="w-48 h-48 border-4 border-background relative flex items-center justify-center">
-                <img src={Data.avatar} alt="Avatar" className="rounded-full" />
+                <img src={PersonalData.avatar} alt="Avatar" className="rounded-full" />
               </Avatar>
             </div>
-            <h1 className="text-4xl font-bold mt-6 mb-2 text-center">{Data.name}</h1>
-            <p className="text-xl text-muted-foreground mb-4 text-center">{Data.title}</p>
+            <h1 className="text-4xl font-bold mt-6 mb-2 text-center">{PersonalData.name}</h1>
+            <p className="text-xl text-muted-foreground mb-4 text-center">{PersonalData.title}</p>
             <div className="flex space-x-4">
-              <a href={Data.socials.github} target="_blank" rel="noopener noreferrer">
+              <a href={LinkData.github} target="_blank" about={LinkData.github} rel="noopener noreferrer">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </a>
-              <a href={Data.socials.linkedin} target="_blank" rel="noopener noreferrer">
+              <a href={LinkData.linkedin} target="_blank" about={LinkData.linkedin} rel="noopener noreferrer">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </a>
-              <a href={Data.socials.twitter} target="_blank" rel="noopener noreferrer">
+              <a href={LinkData.twitter} target="_blank" about={LinkData.twitter} rel="noopener noreferrer">
                 <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
                 </Button>
               </a>
-              <a href={Data.socials.mail}>
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
+              <a href={LinkData.mail}>
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors" about="Mail Link">
                   <Mail className="h-5 w-5" />
                   <span className="sr-only">Email</span>
                 </Button>
@@ -75,7 +52,7 @@ export default function AboutPage() {
           <div className="md:w-2/3">
             <h2 className="text-2xl font-bold mb-4">About Me</h2>
             <div className="space-y-4">
-              {Data.about.map((paragraph, index) => (
+              {PersonalData.about.map((paragraph, index) => (
                 <p key={index} className="leading-relaxed text-muted-foreground">
                   {paragraph.split(':').length > 1 ? <span className="font-bold dark:text-white">{paragraph.split(':')[0]}:</span> : null}
                   {paragraph.split(':').length > 1 ? paragraph.split(':').slice(1) : paragraph}
@@ -88,7 +65,7 @@ export default function AboutPage() {
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-4">Skills</h2>
           <div className="space-y-3 pl-3">
-            {Object.entries(skills).map(([category, skillList]) => (
+            {Object.entries(skillList).map(([category, skillList]) => (
               <div key={category}>
                 <div className="flex flex-wrap gap-1">
                   <h3 className="text-md font-bold">{category}: </h3>
@@ -109,7 +86,7 @@ export default function AboutPage() {
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-4">Education</h2>
           <ol className="relative border-l border-primary/30 space-y-8 pl-5">
-            {Data.education.map((item, index) => (
+            {EducationData.map((item, index) => (
               <EducationList key={index} {...item} />
             ))}
           </ol>

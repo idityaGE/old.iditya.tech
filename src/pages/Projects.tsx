@@ -1,7 +1,8 @@
 import { ProjectCard } from "@/components/project/card/project-card"
-import Data from "@/config/Data.json"
+import { ProjectData } from "@/config/project.config"
+import { LinkData } from "@/config/links.config"
 
-const projects = [...Data.projects]
+const projects = [...ProjectData]
 
 const Projects = () => {
   return (
@@ -13,7 +14,7 @@ const Projects = () => {
         </p>
         <p className="text-base text-muted-foreground mb-4">
           Want to discuss on projects or collaborate on something? Feel free to&nbsp;
-          <a href={Data.socials.instagram.link} target='_blank' className='dark:hover:text-white hover:text-black  duration-300'>@<b className='font-semibold underline underline-offset-2'><strong>{Data.socials.instagram.username}</strong></b> </a>
+          <a href={LinkData.instagram.link} target='_blank' className='dark:hover:text-white hover:text-black  duration-300'>@<b className='font-semibold underline underline-offset-2'><strong>{LinkData.instagram.username}</strong></b> </a>
         </p>
       </div>
 

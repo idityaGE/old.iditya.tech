@@ -22,7 +22,7 @@ const EducationList = ({
       <h3 className="text-lg font-semibold mt-2">{title}</h3>
       <p className="text-base text-muted-foreground">
         {link ? (
-          <Link target="_blank" to={link} className="hover:text-primary transition-colors">
+          <Link target="_blank" to={link} className="hover:text-primary transition-colors" about={title}>
             {institution}
           </Link>
         ) : (

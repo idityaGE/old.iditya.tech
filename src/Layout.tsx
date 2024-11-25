@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "@/components/navbar/Navbar";
 import { Separator } from "@/components/ui/separator"
 import { Link } from 'react-router-dom';
-import Data from "@/config/Data.json";
+import { LinkData } from "./config/links.config";
 
 const Layout = () => {
   return (
@@ -16,8 +16,8 @@ const Layout = () => {
         <footer className="mt-5">
           <Separator />
           <p className="italic font-[500] pl-2 flex justify-between">
-            <Link to={Data.socials.instagram.link} className="text-sm px-2 font-bold hover:underline">
-              made by @{Data.socials.instagram.username}
+            <Link to={LinkData.instagram.link} className="text-sm px-2 font-bold hover:underline">
+              made by @{LinkData.instagram.username}
             </Link>
             <p className="mt-1 text-sm">
               This personal portfolio is still under development...

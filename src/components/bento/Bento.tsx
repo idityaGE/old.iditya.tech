@@ -3,8 +3,8 @@ import { ConnectCard } from "./cards/connect";
 import { GlobeCard } from "./cards/globe";
 import { SkillCard } from "./cards/skillcard";
 import { Projects } from "./cards/projects";
-import Data from "@/config/Data.json";
 import { Layers, MapPin, Link, Atom } from 'lucide-react';
+import { PersonalData } from "@/config/personal.config";
 
 
 
@@ -12,7 +12,7 @@ import { Layers, MapPin, Link, Atom } from 'lucide-react';
 const features = [
   {
     Icon: MapPin,
-    name: `${Data.address.city}, ${Data.address.country}`,
+    name: `${PersonalData.address.city}, ${PersonalData.address.country}`,
     background: <GlobeCard />,
     className: "lg:row-start-1 lg:row-end-3 lg:col-start-3 lg:col-end-5",
   },
