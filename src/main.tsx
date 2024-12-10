@@ -25,12 +25,12 @@ const router = createBrowserRouter(
 )
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  // <StrictMode>
     <ThemeProvider
       defaultTheme='dark'
       storageKey='theme'
     >
       <RouterProvider router={router} />
     </ThemeProvider>
-  </StrictMode>,
+  // </StrictMode>,
 )
