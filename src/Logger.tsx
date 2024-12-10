@@ -8,19 +8,21 @@ import { skillList } from "@/config/skill.config";
 
 // Minimalist Color Palette
 const COLORS = {
-  primary: '#333',      // Deep charcoal
-  secondary: '#666',    // Soft gray
-  accent: '#0066CC',    // Muted blue
-  highlight: '#000',    // Pure black
-  background: '#f4f4f4' // Light gray background
+  primary: '#667BC6',     // Dodger Blue
+  secondary: '#FFE893',   // Dark Gray
+  accent: '#FBB4A5',      // Forest Green
+  highlight: '#FB9EC6',   // Blue Violet
+  background: '#FFFFFF'   // White
 };
 
 // Minimalist Typography
 const STYLES = {
   base: 'font-size: 14px; line-height: 1.6;',
-  heading: 'font-weight: 600; text-transform: uppercase; letter-spacing: 1px;',
+  heading: 'font-size: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;',
   subheading: 'font-weight: 500;'
 };
+
+
 
 const commands = [
   {
@@ -164,9 +166,24 @@ const Logger = () => {
       `color: ${COLORS.background}; background: ${COLORS.primary}; ${STYLES.base} ${STYLES.heading} padding: 4px 8px;`
     );
 
+    console.log(`
+      ██╗███╗   ███╗                               
+      ██║████╗ ████║                               
+      ██║██╔████╔██║                               
+      ██║██║╚██╔╝██║                               
+      ██║██║ ╚═╝ ██║                               
+      ╚═╝╚═╝     ╚═╝                               
+       █████╗ ██████╗ ██╗████████╗██╗   ██╗ █████╗ 
+      ██╔══██╗██╔══██╗██║╚══██╔══╝╚██╗ ██╔╝██╔══██╗
+      ███████║██║  ██║██║   ██║    ╚████╔╝ ███████║
+      ██╔══██║██║  ██║██║   ██║     ╚██╔╝  ██╔══██║
+      ██║  ██║██████╔╝██║   ██║      ██║   ██║  ██║
+      ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝
+      `)
+
     // Hint Message
     console.log(
-      `%cType 'help' to explore commands`,
+      `💡 %cType 'help' to explore commands`,
       `color: ${COLORS.secondary}; ${STYLES.base}`
     );
 
@@ -193,7 +210,7 @@ const Logger = () => {
 
   }, [isMobile]);
 
-  return null;
+  return null; // no rerending
 };
 
 export default Logger;
