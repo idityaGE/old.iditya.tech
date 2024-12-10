@@ -10,32 +10,7 @@ import {
   SimpleIcon,
 } from "react-icon-cloud";
 
-export const cloudProps: Omit<ICloud, "children"> = {
-  containerProps: {
-    style: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "96%",
-      paddingTop: 20,
-    },
-  },
-  options: {
-    reverse: true,
-    depth: 1,
-    wheelZoom: false,
-    imageScale: 2,
-    activeCursor: "default",
-    tooltip: "native",
-    initial: [0.1, -0.1],
-    clickToFront: 500,
-    tooltipDelay: 0,
-    outlineColour: "#0000",
-    maxSpeed: 0.02,
-    minSpeed: 0.02,
-    dragControl: true,
-  },
-};
+import { useDevice } from "@/hooks/useDevice";
 
 export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
@@ -64,11 +39,17 @@ export type DynamicCloudProps = {
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
+  const isMobile = useDevice(); // custom hook
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
-    fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
+    fetchSimpleIcons({ slugs: iconSlugs })
+      .then(setData)
+      .catch((error) => {
+        console.error("Error fetching icons:", error);
+        setData(null);
+      });
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
@@ -78,6 +59,33 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
       renderCustomIcon(icon, theme || "light"),
     );
   }, [data, theme]);
+
+  const cloudProps: Omit<ICloud, "children"> = {
+    containerProps: {
+      style: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "96%",
+        paddingTop: 20,
+      },
+    },
+    options: {
+      reverse: true,
+      depth: 1,
+      wheelZoom: false,
+      imageScale: 2,
+      activeCursor: "default",
+      tooltip: "native",
+      initial: [0.1, -0.1],
+      clickToFront: 500,
+      tooltipDelay: 0,
+      outlineColour: "#0000",
+      maxSpeed: 0.02,
+      minSpeed: 0.02,
+      dragControl: !isMobile, // Dynamically set
+    },
+  };
 
   return (
     // @ts-ignore
