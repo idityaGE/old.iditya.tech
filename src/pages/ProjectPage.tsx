@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import MarkdownRenderer from '@/components/md/MarkdownRenderer';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+
+import MarkdownRenderer from '@/components/md/MarkdownRenderer';
 import { ProjectCard2 } from '@/components/project/card2/project-page-card';
 import { ProjectData } from '@/config/project.config';
 
@@ -18,56 +19,71 @@ const initialState: ContentState = {
 
 const MyPage: React.FC = () => {
   const [state, setState] = useState<ContentState>(initialState);
-  const fileName = useLocation().pathname.split('/').pop();
-  const project = ProjectData.find(project => project.slug.toString() == fileName)
 
-  useEffect(() => {
-    let mounted = true;
+  // Memoize pathname parsing to prevent unnecessary recalculations
+  const fileName = useMemo(() => {
+    const pathParts = useLocation().pathname.split('/');
+    return pathParts[pathParts.length - 1];
+  }, [useLocation().pathname]);
 
-    const loadContent = async () => {
-      try {
-        // Using Vite's glob import feature
-        const modules: any = import.meta.glob('/src/content/*.ts');
-        const matchingPath = `/src/content/${fileName}.ts`;
-        const moduleLoader = modules[matchingPath];
+  // Memoize project lookup to prevent repeated searches
+  const project = useMemo(() =>
+    ProjectData.find(project => project.slug.toString() === fileName),
+    [fileName]
+  );
 
-        if (!moduleLoader) {
-          throw new Error(`No content found for "${fileName}"`);
-        }
+  // Use useCallback to memoize the content loading function
+  const loadContent = useCallback(async () => {
+    try {
+      // Using Vite's glob import feature
+      const modules = import.meta.glob('/src/content/*.ts');
+      const matchingPath = `/src/content/${fileName}.ts`;
+      const moduleLoader = modules[matchingPath];
 
-        const module = await moduleLoader();
-
-        if (mounted) {
-          setState({
-            content: module.default,
-            status: 'success'
-          });
-        }
-      } catch (err) {
-        if (mounted) {
-          setState({
-            content: '',
-            status: 'error',
-            error: err instanceof Error ? err : new Error('Failed to load content')
-          });
-        }
+      if (!moduleLoader) {
+        throw new Error(`No content found for "${fileName}"`);
       }
-    };
 
-    loadContent();
+      const module = await moduleLoader();
 
-    return () => {
-      mounted = false;
-      setState(initialState);
-    };
+      setState({
+        //@ts-ignore
+        content: module.default,
+        status: 'success'
+      });
+    } catch (err) {
+      setState({
+        content: '',
+        status: 'error',
+        error: err instanceof Error ? err : new Error('Failed to load content')
+      });
+    }
   }, [fileName]);
 
-  const renderContent = () => {
+  // Simplified useEffect with error handling
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchContent = async () => {
+      await loadContent();
+    };
+
+    if (isMounted) {
+      fetchContent();
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [loadContent]);
+
+  // Memoized content rendering to prevent unnecessary re-renders
+  const renderContent = useMemo(() => {
     switch (state.status) {
       case 'loading':
         return (
           <div className="flex items-center justify-center p-4">
-            <div className="animate-pulse">Loading...</div>
+            <div className="animate-pulse text-sm text-gray-500">Loading...</div>
           </div>
         );
 
@@ -86,36 +102,34 @@ const MyPage: React.FC = () => {
           </div>
         );
     }
-  };
+  }, [state]);
 
   return (
-    <>
-      <main className="relative w-full lg:h-screen p-4 sm:p-5">
-        <div className="w-full h-full rounded-2xl sm:border flex flex-wrap justify-between lg:divide-x">
-          <div className="relative w-full lg:w-2/5 p-2 md:p-8">
-            <div className="flex justify-between mb-4">
-              <Link to="/projects" className="group/back text-xs">
-                <ArrowLeft
-                  size={24}
-                  className="group-hover/back:-translate-x-1 transition-transform transform-gpu duration-100 ease-in-out"
-                />
-              </Link>
-              {/* <p className="px-2 py-1 text-xs rounded bg-secondary">
-                {new Date(project.date).toDateString()}
-              </p> */}
-            </div>
-            {project && <ProjectCard2 {...project} />}
+    <main className="relative w-full lg:h-screen p-4 sm:p-5">
+      <div className="w-full h-full rounded-2xl sm:border flex flex-wrap justify-between lg:divide-x">
+        <div className="relative w-full lg:w-2/5 p-2 md:p-8">
+          <div className="flex justify-between mb-4">
+            <Link
+              to="/projects"
+              className="group/back text-xs hover:opacity-70 transition-opacity"
+            >
+              <ArrowLeft
+                size={24}
+                className="group-hover/back:-translate-x-1 transition-transform transform-gpu duration-100 ease-in-out"
+              />
+            </Link>
           </div>
-          <div
-            id="tab-section"
-            className="relative w-full lg:h-full lg:w-3/5 p-2 md:p-8 overflow-y-scroll"
-          >
-            <div className="min-h-screen">{renderContent()}</div>
-          </div>
+          {project && <ProjectCard2 {...project} />}
         </div>
-      </main>
-    </>
-  )
+        <div
+          id="tab-section"
+          className="relative w-full lg:h-full lg:w-3/5 p-2 md:p-8 overflow-y-scroll"
+        >
+          <div className="min-h-screen">{renderContent}</div>
+        </div>
+      </div>
+    </main>
+  );
 };
 
-export default MyPage;
+export default React.memo(MyPage);

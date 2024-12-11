@@ -6,7 +6,6 @@ import { useSpring } from "react-spring";
 
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider"
-import { useState } from "react";
 import Data from "@/config/Data.json";
 
 const GLOBE_CONFIG: COBEOptions = {
@@ -36,11 +35,7 @@ export default function Globe({
   config1?: COBEOptions;
 }) {
   const { theme } = useTheme();
-  const [isDark, setIsDark] = useState(theme === "dark");
-
-  useEffect(() => {
-    setIsDark(theme === "dark");
-  }, [theme]);
+  const isDark = theme === "dark";
 
   const config = isDark ? { ...config1, dark: 1 } : { ...config1, dark: 0.1};
 
