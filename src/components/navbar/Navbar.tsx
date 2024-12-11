@@ -1,9 +1,7 @@
-import { ModeToggle } from "@/components/mode-toggle"
-import { Link } from "react-router-dom"
-import { AlignJustify } from 'lucide-react';
-import { CodeXml } from 'lucide-react';
-import { Contact } from 'lucide-react';
-import Data from "@/config/Data.json"
+import { ModeToggle } from "@/components/mode-toggle";
+import { Link } from "react-router-dom";
+import { AlignJustify, CodeXml, Contact } from "lucide-react";
+import Data from "@/config/Data.json";
 
 import {
   DropdownMenu,
@@ -11,85 +9,85 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { useState } from "react";
-
 
 const Navbar = () => {
   return (
-    <div className="w-full h-12 bg-white/30 rounded-lg dark:bg-black/30">
+    <nav className="w-full h-12 bg-white/30 rounded-lg dark:bg-black/30">
       <div className="h-full container max-w-4xl mx-auto flex justify-between items-center px-4">
-        <div className="font-bold text-2xl">
-          {
-            (Data.logo) ? <img src={Data.logo} alt="logo" className="h-8" /> : <Link to="/">&#119990;&#119993;&#119998;&#119998;&#46;</Link>
-          }
-        </div>
+        <Logo />
         <div className="flex items-center space-x-5">
-          <div className="space-x-5 sm:flex hidden">
-            <Link to="/projects" className="font-bold">
-              <div className="flex gap-1">
-                <CodeXml />
-                projects
-              </div>
-            </Link>
-            <Link to="/about" className="font-bold">
-              <div className="flex gap-1">
-                <Contact />
-                about
-              </div>
-            </Link>
-          </div>
-          <div>
-            <div className="flex space-x-3">
-              <div>
-                <ModeToggle />
-              </div>
-              <div className="sm:hidden p-2">
-                <DropdownNav />
-              </div>
-            </div>
+          <DesktopLinks />
+          <div className="flex space-x-3 items-center">
+            <ModeToggle />
+            <MobileDropdown />
           </div>
         </div>
       </div>
+    </nav>
+  );
+};
+
+const Logo = () => {
+  return (
+    <div className="font-bold text-2xl">
+      {Data.logo ? (
+        <img src={Data.logo} alt="logo" className="h-8" />
+      ) : (
+        <Link to="/">&#119990;&#119993;&#119998;&#119998;&#46;</Link>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+const DesktopLinks = () => {
+  return (
+    <div className="space-x-5 hidden sm:flex">
+      <NavItem to="/projects" icon={<CodeXml />} label="projects" />
+      <NavItem to="/about" icon={<Contact />} label="about" />
+    </div>
+  );
+};
 
-const DropdownNav = () => {
-  const [open, setOpen] = useState(false)
+const MobileDropdown = () => {
+  const [open, setOpen] = useState(false);
 
-  const handleStateChange = () => {
-    setOpen(false)
-  }
+  const closeMenu = () => setOpen(false);
 
   return (
-    <>
+    <div className="sm:hidden">
       <DropdownMenu open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger>
           <AlignJustify />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={handleStateChange}>
-            <Link to="/projects" className="font-bold">
-              <div className="flex gap-1">
-                <CodeXml />
-                projects
-              </div>
-            </Link>
+          <DropdownMenuItem onClick={closeMenu}>
+            <NavItem to="/projects" icon={<CodeXml />} label="projects" />
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleStateChange}>
-            <Link to="/about" className="font-bold">
-              <div className="flex gap-1">
-                <Contact />
-                about
-              </div>
-            </Link>
+          <DropdownMenuItem onClick={closeMenu}>
+            <NavItem to="/about" icon={<Contact />} label="about" />
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-    </>
+    </div>
   );
-}
+};
+
+type NavItemProps = {
+  to: string;
+  icon: JSX.Element;
+  label: string;
+};
+
+const NavItem = ({ to, icon, label }: NavItemProps) => {
+  return (
+    <Link to={to} className="font-bold flex gap-1 items-center">
+      {icon}
+      {label}
+    </Link>
+  );
+};
+
+export default Navbar;
