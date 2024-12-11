@@ -9,9 +9,17 @@ import { PersonalData } from "@/config/personal.config"
 import { EducationData } from "@/config/education.config"
 
 export default function AboutPage() {
+  
+  const links = [
+    { name: 'GitHub', icon: <Github className="h-5 w-5" />, url: LinkData.github },
+    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, url: LinkData.linkedin },
+    { name: 'Twitter', icon: <Twitter className="h-5 w-5" />, url: LinkData.twitter },
+    { name: 'Mail', icon: <Mail className="h-5 w-5" />, url: LinkData.mail },
+  ];
+
   return (
     <div className="min-h-screen pt-16 pb-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2">
         <div className="flex flex-col md:flex-row gap-8 mb-12">
           <div className="md:w-1/3 flex flex-col items-center">
             <div className="relative">
@@ -23,30 +31,14 @@ export default function AboutPage() {
             <h1 className="text-4xl font-bold mt-6 mb-2 text-center">{PersonalData.name}</h1>
             <p className="text-xl text-muted-foreground mb-4 text-center">{PersonalData.title}</p>
             <div className="flex space-x-4">
-              <a href={LinkData.github} target="_blank" about={LinkData.github} rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Button>
-              </a>
-              <a href={LinkData.linkedin} target="_blank" about={LinkData.linkedin} rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Button>
-              </a>
-              <a href={LinkData.twitter} target="_blank" about={LinkData.twitter} rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Button>
-              </a>
-              <a href={LinkData.mail}>
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors" about="Mail Link">
-                  <Mail className="h-5 w-5" />
-                  <span className="sr-only">Email</span>
-                </Button>
-              </a>
+              {links.map(({ name, icon, url }) => (
+                <a href={url} key={name}>
+                  <Button variant="ghost" size="icon" className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors" about={name}>
+                    {icon}
+                    <span className="sr-only">{name}</span>
+                  </Button>
+                </a>
+              ))}
             </div>
           </div>
           <div className="md:w-2/3">

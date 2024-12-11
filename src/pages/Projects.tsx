@@ -2,9 +2,10 @@ import { ProjectCard } from "@/components/project/card/project-card"
 import { ProjectData } from "@/config/project.config"
 import { LinkData } from "@/config/links.config"
 
-const projects = [...ProjectData]
 
 const Projects = () => {
+  const projects = [...ProjectData]
+
   return (
     <div>
       <div className="px-1">

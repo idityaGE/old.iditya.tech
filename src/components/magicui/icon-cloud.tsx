@@ -10,8 +10,6 @@ import {
   SimpleIcon,
 } from "react-icon-cloud";
 
-import { useDevice } from "@/hooks/useDevice";
-
 export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
@@ -39,7 +37,6 @@ export type DynamicCloudProps = {
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
-  const isMobile = useDevice(); // custom hook
   const [data, setData] = useState<IconData | null>(null);
   const { theme } = useTheme();
 
@@ -83,7 +80,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
       outlineColour: "#0000",
       maxSpeed: 0.02,
       minSpeed: 0.02,
-      dragControl: !isMobile, // Dynamically set
+      dragControl: true,
     },
   };
 
