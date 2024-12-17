@@ -6,7 +6,8 @@ import MarkdownRenderer from '@/components/md/MarkdownRenderer';
 import { ProjectCard2 } from '@/components/project/card2/project-page-card';
 import { ProjectData } from '@/config/project.config';
 
-import { exampleMd } from '@/content/example';
+// import { exampleMd } from '@/content/example';
+import { sampleMarkdown } from '@/content/sample-md';
 
 interface ContentState {
   content: string;
@@ -93,7 +94,7 @@ const MyPage: React.FC = () => {
           <div className="text-red-600 p-4">
             <h2 className="text-lg font-semibold mb-2">Error Loading Content</h2>
             <p>{state.error?.message}</p>
-            <MarkdownRenderer content={exampleMd} />
+            <MarkdownRenderer content={sampleMarkdown} />
           </div>
         );
 

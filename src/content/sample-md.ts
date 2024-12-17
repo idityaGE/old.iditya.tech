@@ -29,6 +29,7 @@ This is a [link to example.com](https://www.example.com).
 
 - Item 1
   - Nested Item 1
+    - Nested Item 2
   - Nested Item 2
 - Item 2
 - Item 3
@@ -37,8 +38,6 @@ This is a [link to example.com](https://www.example.com).
 
 1. First item
 2. Second item
-   1. Nested First
-   2. Nested Second
 3. Third item
 
 ---
@@ -121,7 +120,7 @@ Term 2
 
 ### Emoji
 
-Here is a smiley face :smiley: and a thumbs up :+1:
+Here is a smiley face :😅😅: and a ❄️:
 
 ---
 
