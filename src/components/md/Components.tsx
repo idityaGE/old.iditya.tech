@@ -122,16 +122,8 @@ const components: CustomComponents = {
 
   // Code blocks with theme support
   code: ({ node, inline, className, children, ...props }: MarkdownComponentProps) => {
-    // const match = /language-(\w+)/.exec(className || '');
-    return inline ? (
-      <code className={cn(
-        "relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm",
-        "bg-muted text-muted-foreground",
-        className // Add this to preserve the language class
-      )} {...props}>
-        {children}
-      </code>
-    ) : (
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
       <pre className={cn(
         "mb-4 mt-4 overflow-x-auto rounded-lg p-4",
         "bg-muted font-mono text-sm"
@@ -140,6 +132,14 @@ const components: CustomComponents = {
           {children}
         </code>
       </pre>
+    ) : (
+      <code className={cn(
+        "relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "bg-muted text-muted-foreground",
+        className
+      )} {...props}>
+        {children}
+      </code>
     );
   },
 

@@ -1,5 +1,5 @@
 export const exampleMd = `
-# TypeScript Markdown Example
+# Markdown Example
 
 ## Table Example
 | Name | Age | City |
@@ -20,6 +20,8 @@ console.log(add(5, 3));
 
 ## Image Example
 ![React Logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)
+
+<img src="https://i.pinimg.com/736x/91/f0/78/91f078a690a4a12e4f4c8ef036d265e0.jpg" alt="Unsplash Image" width="500" />
 
 ## List Example
 - Item 1

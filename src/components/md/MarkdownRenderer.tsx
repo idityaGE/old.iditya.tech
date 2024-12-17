@@ -2,8 +2,11 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+
 import { components } from './Components';
 
 interface MarkdownRendererProps {
@@ -22,7 +25,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
       <div className="max-w-none">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight]}
+          rehypePlugins={[rehypeHighlight, rehypeRaw]}
           components={components}
           skipHtml={false}
         >
