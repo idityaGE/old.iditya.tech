@@ -1,4 +1,3 @@
-import React, { useMemo } from 'react';
 import { Layers, MapPin, Link, Atom } from 'lucide-react';
 
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
@@ -8,17 +7,9 @@ import { SkillCard } from "./cards/skillcard";
 import { Projects } from "./cards/projects";
 import { PersonalData } from "@/config/personal.config";
 
-interface BentoFeature {
-  Icon: React.ElementType;
-  name: string;
-  background: React.ReactNode;
-  className: string;
-  isIconHidden?: boolean;
-}
 
-const Bento: React.FC = () => {
-  // Memoize features to prevent unnecessary recalculations
-  const features = useMemo<BentoFeature[]>(() => [
+const Bento = () => {
+  const features = [
     {
       Icon: MapPin,
       name: `${PersonalData.address.city}, ${PersonalData.address.country}`,
@@ -50,7 +41,7 @@ const Bento: React.FC = () => {
       background: <Projects />,
       className: "lg:col-start-1 lg:col-end-5 lg:row-start-4 lg:row-end-5",
     },
-  ], []); // Empty dependency array as this doesn't change
+  ]
 
   return (
     <BentoGrid className="lg:grid-rows-3">
@@ -68,4 +59,4 @@ const Bento: React.FC = () => {
   );
 };
 
-export default React.memo(Bento);
+export default Bento

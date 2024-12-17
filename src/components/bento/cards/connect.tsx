@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
 
 import { Dock, DockIcon } from "@/components/magicui/dock";
@@ -6,15 +5,9 @@ import { LinkData } from "@/config/links.config";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
-interface SocialLink {
-  Icon: React.ElementType;
-  href: string;
-  about: string;
-}
-
-export const ConnectCard: React.FC = React.memo(() => {
+export const ConnectCard = () => {
   // Memoize social links to prevent unnecessary recalculations
-  const socialLinks = useMemo<SocialLink[]>(() => [
+  const socialLinks = [
     {
       Icon: Github,
       href: LinkData.github,
@@ -35,7 +28,7 @@ export const ConnectCard: React.FC = React.memo(() => {
       href: LinkData.instagram.link,
       about: "Instagram Link"
     }
-  ], []);
+  ]
 
   return (
     <div className="relative z-20">
@@ -53,8 +46,6 @@ export const ConnectCard: React.FC = React.memo(() => {
       </Dock>
     </div>
   );
-});
-
-ConnectCard.displayName = "ConnectCard";
+};
 
 export default ConnectCard;

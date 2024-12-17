@@ -6,7 +6,6 @@ import { ProjectData } from "@/config/project.config";
 import { PersonalData } from "@/config/personal.config";
 import { skillList } from "@/config/skill.config";
 
-// Minimalist Color Palette
 const COLORS = {
   primary: '#667BC6',     // Dodger Blue
   secondary: '#FFE893',   // Dark Gray
@@ -15,7 +14,6 @@ const COLORS = {
   background: '#FFFFFF'   // White
 };
 
-// Minimalist Typography
 const STYLES = {
   base: 'font-size: 14px; line-height: 1.6;',
   heading: 'font-size: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;',
@@ -29,7 +27,7 @@ const commands = [
     name: "help",
     description: "Available commands",
     action: () => {
-      console.clear();
+      // console.clear();
       console.log(
         `%c  Portfolio CLI  `,
         `background: ${COLORS.primary}; color: ${COLORS.background}; ${STYLES.base} ${STYLES.heading} padding: 4px 8px;`
@@ -48,7 +46,7 @@ const commands = [
     name: "about",
     description: "Personal overview",
     action: () => {
-      console.clear();
+      // console.clear();
       console.log(
         `%c${PersonalData.name} | ${PersonalData.title}`,
         `color: ${COLORS.highlight}; ${STYLES.base} ${STYLES.heading}`
@@ -71,7 +69,7 @@ const commands = [
     name: "skills",
     description: "Technical skills",
     action: () => {
-      console.clear();
+      // console.clear();
       console.log(
         `%cTechnical Skills`,
         `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`
@@ -94,7 +92,7 @@ const commands = [
     name: "projects",
     description: "Featured work",
     action: () => {
-      console.clear();
+      // console.clear();
       console.log(
         `%cProjects`,
         `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`
@@ -125,7 +123,7 @@ const commands = [
     name: "contact",
     description: "Connect with me",
     action: () => {
-      console.clear();
+      // console.clear();
       console.log(
         `%cContact`,
         `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`
@@ -194,19 +192,6 @@ const Logger = () => {
     }, {} as Record<string, () => void>);
 
     Object.assign(window, commandMap);
-
-    // Custom error handling
-    const originalError = console.error;
-    console.error = function (msg, ...args) {
-      if (typeof msg === 'string' && msg.includes('is not defined')) {
-        console.log(
-          `%cUnknown command. Type 'help' to see available commands`,
-          `color: ${COLORS.accent}; ${STYLES.base}`
-        );
-      } else {
-        originalError.apply(console, [msg, ...args]);
-      }
-    };
 
   }, [isMobile]);
 

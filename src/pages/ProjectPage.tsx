@@ -28,9 +28,8 @@ const MyPage: React.FC = () => {
 
   // Memoize project lookup to prevent repeated searches
   const project = useMemo(() =>
-    ProjectData.find(project => project.slug.toString() === fileName),
-    [fileName]
-  );
+    ProjectData.find(project => project.slug.toString() === fileName)
+    , [fileName]);
 
   // Use useCallback to memoize the content loading function
   const loadContent = useCallback(async () => {
