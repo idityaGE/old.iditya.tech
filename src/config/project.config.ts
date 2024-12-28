@@ -1,10 +1,31 @@
 export const ProjectData = [
   {
+    title: "Blind Chat",
+    slug: "blind-chat",
+    description: "An open-source web app for college students to connect using their official email IDs. Easily customizable for any college with a simple config file.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735418264/Screenshot_2024-12-29_013419_wxu05k.png",
+    ],
+    githubLink: "https://github.com/idityaGE/Blind-Chat",
+    liveLink: "https://blind-curaj.vercel.app/",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Socket.io",
+      "Nodemailer",
+      "Redis",
+      "Prisma",
+      "Postgres",
+      "shadcn ui",
+    ]
+  },
+  {
     title: "Assignment Code to PDF",
     slug: "assignment-code-to-pdf",
     description: "Converts questions, codes and outputs to PDF with syntax highlighting. Built with Next.js, TypeScript, html2canvas, jsPDF, and Tailwind CSS.",
     images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213842/img2_fhmew1.png",
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735418523/Screenshot_2024-12-29_021122_ewow6o.png",
       "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213842/img3_z2yp9j.png"
     ],
     liveLink: "https://assignment-code-to-pdf.vercel.app/",
@@ -60,21 +81,21 @@ export const ProjectData = [
       "Clerk"
     ]
   },
-  {
-    title: "Contact Form",
-    slug: "contact-form",
-    description: "A contact form that sends an email to the website owner. Built with Next.js, TypeScript, and Tailwind CSS.",
-    images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213877/contact_aguxla.png"
-    ],
-    liveLink: "https://contactuspage-two.vercel.app/",
-    githubLink: "https://github.com/idityaGE/Projects/tree/main/contact_us_form",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "React Hook Form",
-      "Resend",
-      "Shadcn UI"
-    ]
-  }
+  // {
+  //   title: "Contact Form",
+  //   slug: "contact-form",
+  //   description: "A contact form that sends an email to the website owner. Built with Next.js, TypeScript, and Tailwind CSS.",
+  //   images: [
+  //     "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213877/contact_aguxla.png"
+  //   ],
+  //   liveLink: "https://contactuspage-two.vercel.app/",
+  //   githubLink: "https://github.com/idityaGE/Projects/tree/main/contact_us_form",
+  //   techStack: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "React Hook Form",
+  //     "Resend",
+  //     "Shadcn UI"
+  //   ]
+  // }
 ]

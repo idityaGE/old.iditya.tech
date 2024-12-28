@@ -13,7 +13,7 @@ const Hero = () => {
       </div>
       <div className='mt-5'>
         <h6 className='text-base text-muted-foreground'>Feel free to reach me out at&nbsp;
-          <a href={LinkData.instagram.link} target='_blank' className='dark:hover:text-white hover:text-black  duration-300' about="Instagram Link">@<b className='font-semibold underline underline-offset-2'><strong>{LinkData.instagram.username}</strong></b> </a>
+          <a href={LinkData.twitter} target='_blank' className='dark:hover:text-white hover:text-black  duration-300' about="Instagram Link">@<b className='font-semibold underline underline-offset-2'><strong>{LinkData.twitter.split('/').pop()}</strong></b> </a>
           or&nbsp;
           <a href={LinkData.mail} className='dark:hover:text-white hover:text-black  duration-300' about="Mail Link">
             <Mail size={18} className='inline-block' />
