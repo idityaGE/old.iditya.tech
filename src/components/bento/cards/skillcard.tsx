@@ -4,7 +4,6 @@ const slugs = ["typescript",
   "javascript",
   "c",
   "cplusplus",
-  "java",
   "react",
   "html5",
   "css3",
@@ -47,7 +46,10 @@ const slugs = ["typescript",
   "eslint",
   "webrtc",
   "webpack",
-  "shadcnui"];
+  "shadcnui",
+  "go",
+  "socket.io"
+];
 
 export function SkillCard() {
   return (
