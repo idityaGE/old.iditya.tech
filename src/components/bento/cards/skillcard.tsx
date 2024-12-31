@@ -48,7 +48,8 @@ const slugs = ["typescript",
   "webpack",
   "shadcnui",
   "go",
-  "socket.io"
+  "socket.io",
+  "graphql",
 ];
 
 export function SkillCard() {

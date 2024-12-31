@@ -1,15 +1,15 @@
 export const skillList = {
   Librarys: [
-    "React", "Next.js", "TailwindCSS", "SCSS", "ShadCN UI", "Redux", "Recoil", "turborepo", "Greensock", "Three.js", "ESLint", "Webpack", "Vitest", "Jest", "Cypress"
+    "React", "Next.js", "TailwindCSS", "SCSS", "ShadCN UI", "Redux", "Recoil", "turborepo", "Greensock", "Three.js", "ESLint", "Webpack", "Vitest", "Jest", "Cypress", "Socket.io", "Hugging Face 🤗", "LangChain 🔗"
   ],
   "Javascript runtime": [
-    "Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker", "Socket.io"
+    "Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker",
   ],
   Backend: [
-    "Hono js", "Express", "Fastapi", "Flask", "Go", "Appwrite", "Supabase", "Swagger"
+    "Hono js", "Express", "GraphQL", "Go", "Appwrite", "Supabase", "Swagger", "websocket", "WebRTC"
   ],
   Database: [
-    "PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis"
+    "PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis", "ChromaDB", "Pinecone" 
   ],
   ORM: [
     "Prisma", "Mongoose", "Drizzle"
@@ -18,9 +18,9 @@ export const skillList = {
     "AWS", "GCP", "Docker", "Kubernetes", "Vercel", "Cloudflare", "Netlify", "GitHub Actions", "GitLab CI/CD", "Nginx", "Apache Kafka"
   ],
   Tools: [
-    "Git", "GitHub", "Visual Studio Code", "Linux", "Gnu Bash", "WebRTC"
+    "Git", "GitHub", "Visual Studio Code", "Linux", "Gnu Bash"
   ],
   Languages: [
-    "TypeScript", "JavaScript", "Go", "C", "C++", "Java", "Rust", "Python"
+    "TypeScript", "Go", "C", "C++", "Java", "Rust", "Python"
   ]
 };

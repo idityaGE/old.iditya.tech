@@ -21,6 +21,30 @@ export const ProjectData = [
     ]
   },
   {
+    title: "_Zapier ⚡",
+    slug: "_zapier",
+    description: "An open-source app to automate workflows with a trigger-action framework. Easily connect apps, customize integrations, and boost productivity. Perfect for seamless task automation and workflow management.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735663950/Screenshot_2024-12-31_213824_jz4kh8.png",
+    ],
+    githubLink: "https://github.com/idityaGE/_zapier",
+    // liveLink: "https://blind-curaj.vercel.app/",
+    techStack: [
+      "Apach Kafka",
+      "Turborepo",
+      "Next.js",
+      "Zustand",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Nodemailer",
+      "Prisma",
+      "Postgres",
+      "shadcn ui",
+      "zod",
+    ]
+  },
+  {
     title: "Assignment Code to PDF",
     slug: "assignment-code-to-pdf",
     description: "Converts questions, codes and outputs to PDF with syntax highlighting. Built with Next.js, TypeScript, html2canvas, jsPDF, and Tailwind CSS.",
