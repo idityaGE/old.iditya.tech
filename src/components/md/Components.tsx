@@ -2,6 +2,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { cn } from '@/lib/utils';
 import React from 'react';
 import 'highlight.js/styles/github-dark.css';
+import { VideoPlayer } from './Videoplayer';
 
 type MarkdownComponentProps = {
   node?: any;
@@ -10,47 +11,8 @@ type MarkdownComponentProps = {
   [key: string]: any;
 };
 
-interface VideoPlayerProps {
-  url: string;
-}
-
 type CustomComponents = {
   [key: string]: React.FC<MarkdownComponentProps>;
-};
-
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ url }) => {
-  const getYouTubeId = (url: string): string | null => {
-    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/);
-    return match ? match[1] : null;
-  };
-
-  const isYouTubeUrl = url.includes('youtube.com') || url.includes('youtu.be');
-  const youtubeId = isYouTubeUrl ? getYouTubeId(url) : null;
-
-  if (youtubeId) {
-    return (
-      <div className="relative w-full pt-[56.25%] mb-4">
-        <iframe
-          className="absolute top-0 left-0 w-full h-full rounded-lg"
-          src={`https://www.youtube.com/embed/${youtubeId}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-    );
-  }
-
-  return (
-    <video
-      className="w-full max-h-[70vh] mb-4 rounded-lg"
-      controls
-      src={url}
-      muted
-      autoPlay
-    >
-      Your browser does not support the video tag.
-    </video>
-  );
 };
 
 const components: CustomComponents = {
@@ -100,18 +62,34 @@ const components: CustomComponents = {
     )} {...props} />,
 
   // Lists with theme support
-  ul: ({ node, ...props }: MarkdownComponentProps) =>
+  ul: ({ node, className, children, ...props }: MarkdownComponentProps) => (
     <ul className={cn(
-      "list-disc list-inside space-y-2 mb-4",
-      "text-muted-foreground"
-    )} {...props} />,
-  ol: ({ node, ...props }: MarkdownComponentProps) =>
+      "my-3 ml-2 list-disc [&>li]:mt-2",
+      "text-muted-foreground",
+      className
+    )} {...props}>
+      {children}
+    </ul>
+  ),
+
+  ol: ({ node, className, children, ...props }: MarkdownComponentProps) => (
     <ol className={cn(
-      "list-decimal list-inside space-y-2 mb-4",
-      "text-muted-foreground"
-    )} {...props} />,
-  li: ({ node, ...props }: MarkdownComponentProps) =>
-    <li className="leading-7" {...props} />,
+      "my-6 ml-6 list-decimal [&>li]:mt-2",
+      "text-muted-foreground",
+      className
+    )} {...props}>
+      {children}
+    </ol>
+  ),
+
+  li: ({ node, className, children, ...props }: MarkdownComponentProps) => (
+    <li className={cn(
+      "leading-7 [&>ul]:my-0 [&>ol]:my-0",
+      className
+    )} {...props}>
+      {children}
+    </li>
+  ),
 
   blockquote: ({ node, ...props }: MarkdownComponentProps) => (
     <blockquote className={cn(

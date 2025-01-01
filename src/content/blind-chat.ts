@@ -1,10 +1,13 @@
 export default `
-# 🚀 Blind Chat Platform
+## 👁️ Blind Chat Platform
 ---
 Blind Chat is a platform designed for students of a specific college to connect and interact with their peers using their official college email IDs. The platform enables real-time communication via WebSocket and a modern frontend built with Next.js. The project is open-source, and you can easily adapt it for your own college by modifying the configuration file.
 
-![Blind-Chat - An open-source web app for college students to connect using their official email IDs. Easily customizable for any college with a simple config file.](https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735418264/Screenshot_2024-12-29_013419_wxu05k.png)
+---
 
+## 🎥 Demo
+
+youtube: https://youtu.be/31P9nYA_Aho
 
 ---
 ## ✨ Features
