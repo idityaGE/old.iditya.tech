@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
@@ -20,7 +20,7 @@ const initialState: ContentState = {
   status: 'loading'
 };
 
-const MyPage: React.FC = () => {
+const MyPage = () => {
   const [state, setState] = useState<ContentState>(initialState);
 
   // Memoize pathname parsing to prevent unnecessary recalculations
@@ -135,4 +135,4 @@ const MyPage: React.FC = () => {
   );
 };
 
-export default React.memo(MyPage);
+export default MyPage;

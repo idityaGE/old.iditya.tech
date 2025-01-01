@@ -22,7 +22,7 @@ export const ProjectData = [
   },
   {
     title: "_Zapier ⚡",
-    slug: "_zapier",
+    slug: "zapier",
     description: "An open-source app to automate workflows with a trigger-action framework. Easily connect apps, customize integrations, and boost productivity. Perfect for seamless task automation and workflow management.",
     images: [
       "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735663950/Screenshot_2024-12-31_213824_jz4kh8.png",
