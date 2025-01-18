@@ -24,7 +24,19 @@ const Hero = () => {
       </div>
       <div className='mt-4 flex flex-row'>
         <h6 className='text-base text-muted-foreground'>View my&nbsp;
-          <a href="#resume" download={""} className='underline underline-offset-2 dark:hover:text-white hover:text-black duration-300 font-semibold' about="Resume Link"><strong>Resume</strong></a>&nbsp;&#10697;
+          <a
+            href="./resume.pdf"
+            download="Aditya_Resume.pdf"
+            className='underline underline-offset-2 dark:hover:text-white hover:text-black duration-300 font-semibold'
+            about="Resume Link"
+            onClick={(e) => {
+              e.preventDefault()
+              alert("Haven't made it yet 😔, Working on it !")
+            }}
+          >
+            <strong>Resume</strong>
+          </a>
+          &nbsp;&#10697;
         </h6>
       </div>
       <h1 id="name" className='text-4xl font-bold leading-12 pt-10'>About me</h1>

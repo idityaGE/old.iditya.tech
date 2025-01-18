@@ -25,7 +25,7 @@ export const ProjectCard = React.memo(({
     )), [techStack]);
 
   return (
-    <div className="flex p-3 flex-col-reverse justify-between gap-2 rounded-xl border overflow-hidden md:flex-row group">
+    <div className="flex p-3 md:p-6 flex-col-reverse justify-between gap-2 rounded-xl border overflow-hidden md:flex-row group">
       <div className="space-y-2 w-full tablet:w-3/5">
         <Link
           to={`/projects/${slug}`}
