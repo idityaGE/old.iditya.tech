@@ -28,7 +28,6 @@ export const ProjectData = [
       "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735663950/Screenshot_2024-12-31_213824_jz4kh8.png",
     ],
     githubLink: "https://github.com/idityaGE/_zapier",
-    // liveLink: "https://blind-curaj.vercel.app/",
     techStack: [
       "Apach Kafka",
       "Turborepo",
@@ -103,6 +102,25 @@ export const ProjectData = [
       "tanstack-query",
       "Uploadthing",
       "Clerk"
+    ]
+  },
+  {
+    title: "Social Media Analyzer",
+    slug: "social-media-analyzer",
+    description: "A web app that analyzes social media profiles and provides insights on the user's social media presence. It utilizes Langflow for workflow creation and GPT integration, and DataStax Astra DB for database operations.",
+    images: [
+      "https://github.com/idityaGE/Social-Media-Performance-Analysis/blob/main/.github/images/landing.png?raw=true"
+    ],
+    liveLink: "https://insightai-eight.vercel.app/",
+    githubLink: "https://github.com/idityaGE/Social-Media-Performance-Analysis",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Langflow",
+      "GPT-3",
+      "DataStax Astra DB",
+      "shadcn ui",
+      'recharts'
     ]
   },
   // {
