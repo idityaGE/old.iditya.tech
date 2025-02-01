@@ -10,6 +10,3 @@
 7. Magic UI
 8. Aceternity UI
 9. Animata Design
-
-
-
