@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React app
+        run: npm run build
+        env:
+          CI: false
+
+      - name: Checkout GitHub Pages repository
+        uses: actions/checkout@v4
+        with:
+          repository: idityage/idityage.github.io
+          token: ${{ secrets.DEPLOY_PAT }}
+          path: gh-pages-repo
+
+      - name: Deploy to GitHub Pages repository
+        run: |
+          # Store CNAME content if it exists
+          CNAME_CONTENT=""
+          if [ -f gh-pages-repo/CNAME ]; then
+            CNAME_CONTENT=$(cat gh-pages-repo/CNAME)
+          fi
+          
+          # Remove existing files but keep .git directory
+          cd gh-pages-repo
+          find . -maxdepth 1 ! -name .git ! -name . -exec rm -rf {} +
+          
+          # Copy new build files from dist directory
+          cp -r ../dist/* .
+          
+          # Restore CNAME if it existed
+          if [ ! -z "$CNAME_CONTENT" ]; then
+            echo "$CNAME_CONTENT" > CNAME
+          fi
+          
+          # Configure Git
+          git config user.name "GitHub Actions Bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Stage, commit, and push changes
+          git add -A
+          git commit -m "Deploy: $(date +%Y-%m-%d-%H-%M-%S)" || echo "No changes to commit"
+          git push
