@@ -21,8 +21,6 @@ const STYLES = {
 };
 
 
-
-
 const commands = [
   {
     name: "help",
