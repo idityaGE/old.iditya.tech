@@ -9,7 +9,8 @@ import Layout from '@/Layout.tsx'
 import Home from '@/pages/Home.tsx'
 import About from '@/pages/About.tsx'
 import Projects from '@/pages/Projects.tsx'
-import ProjectPage from './pages/ProjectPage'
+import ProjectPage from '@/pages/ProjectPage'
+import NotFound from '@/NotFound'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
         <Route path="projects" element={<Projects />} />
       </Route>
       <Route path='/projects/:slug' element={<ProjectPage />} />
+      <Route path="*" element={<NotFound />} />
     </>
   )
 )

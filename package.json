@@ -30,7 +30,7 @@
     "react-hook-form": "^7.53.0",
     "react-icon-cloud": "^4.1.4",
     "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.29.0",
     "react-spring": "^9.7.4",
     "rehype-highlight": "^7.0.1",
     "rehype-raw": "^7.0.0",
