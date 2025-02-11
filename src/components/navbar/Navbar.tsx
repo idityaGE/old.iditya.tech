@@ -14,14 +14,16 @@ import { useState } from "react";
 
 const Navbar = () => {
   return (
-    <nav className="w-full h-12 bg-white/30 rounded-lg dark:bg-black/30">
-      <div className="h-full container max-w-4xl mx-auto flex justify-between items-center px-4">
-        <Logo />
-        <div className="flex items-center space-x-5">
-          <DesktopLinks />
-          <div className="flex space-x-3 items-center">
-            <ModeToggle />
-            <MobileDropdown />
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-4xl px-4 z-50">
+      <div className="h-12 bg-white/30 rounded-lg dark:bg-black/30 backdrop-filter backdrop-blur-lg shadow-lg">
+        <div className="h-full w-full mx-auto flex justify-between items-center px-4">
+          <Logo />
+          <div className="flex items-center space-x-5">
+            <DesktopLinks />
+            <div className="flex space-x-3 items-center">
+              <ModeToggle />
+              <MobileDropdown />
+            </div>
           </div>
         </div>
       </div>
@@ -61,7 +63,7 @@ const MobileDropdown = () => {
         <DropdownMenuTrigger>
           <AlignJustify />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" className="backdrop-filter backdrop-blur-lg shadow-lg bg-white/30 rounded-lg dark:bg-black/30">
           <DropdownMenuItem onClick={closeMenu}>
             <NavItem to="/projects" icon={<CodeXml />} label="projects" />
           </DropdownMenuItem>
