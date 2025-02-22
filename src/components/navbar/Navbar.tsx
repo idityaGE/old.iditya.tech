@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Link } from "react-router-dom";
 import { AlignJustify, CodeXml, Contact } from "lucide-react";
@@ -87,4 +88,4 @@ const NavItem = ({ to, icon, label }: NavItemProps) => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

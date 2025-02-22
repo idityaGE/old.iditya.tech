@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { memo } from "react"
 
 type EducationListProps = {
   year: string
@@ -34,4 +35,4 @@ const EducationList = ({
   )
 }
 
-export { EducationList }
+export default memo(EducationList)

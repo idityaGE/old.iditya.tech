@@ -1,15 +1,17 @@
+import { memo } from "react"
+
 import { Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
-import { EducationList } from "./EducationSection"
+import EducationList from "./EducationSection"
 import { skillList } from "@/config/skill.config"
 
 import { LinkData } from "@/config/links.config"
 import { PersonalData } from "@/config/personal.config"
 import { EducationData } from "@/config/education.config"
 
-export default function AboutPage() {
-  
+function AboutPage() {
+
   const links = [
     { name: 'GitHub', icon: <Github className="h-5 w-5" />, url: LinkData.github },
     { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, url: LinkData.linkedin },
@@ -88,3 +90,5 @@ export default function AboutPage() {
     </div>
   )
 }
+
+export default memo(AboutPage)

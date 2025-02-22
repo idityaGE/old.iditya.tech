@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { Mail } from "lucide-react"
 import { PersonalData } from "@/config/personal.config"
 import { LinkData } from "@/config/links.config"
@@ -44,4 +45,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default memo(Hero)
