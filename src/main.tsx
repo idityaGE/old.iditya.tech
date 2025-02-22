@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 
@@ -7,21 +7,47 @@ import { ThemeProvider } from '@/components/theme-provider.tsx'
 
 import Layout from '@/Layout.tsx'
 import Home from '@/pages/Home.tsx'
-import About from '@/pages/About.tsx'
-import Projects from '@/pages/Projects.tsx'
-import ProjectPage from '@/pages/ProjectPage'
-import NotFound from '@/NotFound'
+const About = lazy(() => import('@/pages/About.tsx'))
+const Projects = lazy(() => import('@/pages/Projects.tsx'))
+const ProjectPage = lazy(() => import('@/pages/ProjectPage'))
+const NotFound = lazy(() => import('@/NotFound'))
+
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white" />
+  </div>
+)
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="projects" element={<Projects />} />
+        <Route index element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Home />
+          </Suspense>
+        } />
+        <Route path="about" element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <About />
+          </Suspense>
+        } />
+        <Route path="projects" element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Projects />
+          </Suspense>
+        } />
       </Route>
-      <Route path='/projects/:slug' element={<ProjectPage />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path='/projects/:slug' element={
+        <Suspense fallback={<LoadingSpinner />}>
+          <ProjectPage />
+        </Suspense>
+      } />
+      <Route path="*" element={
+        <Suspense fallback={<LoadingSpinner />}>
+          <NotFound />
+        </Suspense>
+      } />
     </>
   )
 )

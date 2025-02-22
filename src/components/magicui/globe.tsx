@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useRef } from "react";
 import createGlobe, { COBEOptions } from "cobe";
 import { useSpring } from "react-spring";
 
@@ -25,7 +25,7 @@ const GLOBE_CONFIG: COBEOptions = {
   ],
 };
 
-export default function Globe({
+export default memo(function Globe({
   className,
   config1 = GLOBE_CONFIG,
 }: {
@@ -35,7 +35,7 @@ export default function Globe({
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const config = isDark ? { ...config1, dark: 1 } : { ...config1, dark: 0.1};
+  const config = isDark ? { ...config1, dark: 1 } : { ...config1, dark: 0.1 };
 
   let phi = -2.9;
   let width = 0;
@@ -56,6 +56,10 @@ export default function Globe({
     pointerInteracting.current = value;
     canvasRef.current!.style.cursor = value ? "grabbing" : "grab";
   };
+
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    updatePointerInteraction(e.clientX - pointerInteractionMovement.current);
+  }, []);
 
   const updateMovement = (clientX: any) => {
     if (pointerInteracting.current !== null) {
@@ -107,11 +111,7 @@ export default function Globe({
           "h-full w-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
         )}
         ref={canvasRef}
-        onPointerDown={(e) =>
-          updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current,
-          )
-        }
+        onPointerDown={handlePointerDown}
         onPointerUp={() => updatePointerInteraction(null)}
         onPointerOut={() => updatePointerInteraction(null)}
         onMouseMove={(e) => updateMovement(e.clientX)}
@@ -121,4 +121,4 @@ export default function Globe({
       />
     </div>
   );
-}
+})

@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import { ExternalLink, Github, StepForward } from 'lucide-react';
 import type { ProjectCardProps } from "@/types/project";
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
-export const ProjectCard = React.memo(({
+export const ProjectCard = memo(({
   title,
   description,
   images,
@@ -23,6 +23,8 @@ export const ProjectCard = React.memo(({
         {tag}
       </p>
     )), [techStack]);
+
+  const imageUrl = useMemo(() => images[0], [images]);
 
   return (
     <div className="flex p-3 md:p-6 flex-col-reverse justify-between gap-2 rounded-xl border overflow-hidden md:flex-row group">
@@ -86,12 +88,13 @@ export const ProjectCard = React.memo(({
           aria-label={`View details of ${title} project`}
         >
           <img
-            src={images[0]}
+            src={imageUrl}
             alt={`${title} project screenshot`}
             width={250}
             height={100}
             className='w-full h-full object-contain'
             loading="lazy"
+            decoding='async'
           />
         </Link>
       </div>

@@ -20,6 +20,7 @@ const Layout = () => {
           src="https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213921/gradient_zecf4g.webp"
           alt="Gradient IMG"
           className="fixed left-0 sm:left-1/2 top-0 -z-10 -translate-x-1/2 lg:scale-100 object-cover"
+          fetchPriority="high"
         />
         <Navbar />
         <div className="flex-grow mt-16 md:mt-20 px-2">
