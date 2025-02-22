@@ -1,12 +1,10 @@
-"use client";
-
 import { useCallback, useEffect, useRef } from "react";
 import createGlobe, { COBEOptions } from "cobe";
 import { useSpring } from "react-spring";
 
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme-provider"
-import Data from "@/config/Data.json";
+import { PersonalData } from "@/config/personal.config";
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -23,7 +21,7 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [
-    { location: [Data.address.latitude, Data.address.longitude], size: 0.08 },
+    { location: [PersonalData.address.latitude, PersonalData.address.longitude], size: 0.08 },
   ],
 };
 

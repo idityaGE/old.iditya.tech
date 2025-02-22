@@ -1,7 +1,6 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { Link } from "react-router-dom";
 import { AlignJustify, CodeXml, Contact } from "lucide-react";
-import Data from "@/config/Data.json";
 
 import {
   DropdownMenu,
@@ -34,11 +33,7 @@ const Navbar = () => {
 const Logo = () => {
   return (
     <div className="font-bold text-2xl">
-      {Data.logo ? (
-        <img src={Data.logo} alt="logo" className="h-8" />
-      ) : (
-        <Link to="/">&#119990;&#119993;&#119998;&#119998;&#46;</Link>
-      )}
+      <Link to="/">&#119990;&#119993;&#119998;&#119998;&#46;</Link>
     </div>
   );
 };

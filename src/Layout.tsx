@@ -1,15 +1,19 @@
+import { Suspense, lazy } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import Navbar from "@/components/navbar/Navbar";
 import { Separator } from "@/components/ui/separator"
 import { Link } from 'react-router-dom';
 import { LinkData } from "./config/links.config";
-import Logger from "./Logger";
 import { Mail } from "lucide-react";
+
+const Logger = lazy(() => import("./Logger"));
 
 const Layout = () => {
   return (
     <>
-      <Logger />
+      <Suspense fallback={null}>
+        <Logger />
+      </Suspense>
       <ScrollRestoration />
       <div className="container max-w-4xl mx-auto min-h-screen flex flex-col px-4 pt-4">
         <img
