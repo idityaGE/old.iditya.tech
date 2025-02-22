@@ -16,13 +16,15 @@ export default defineConfig({
   },
   build: {
     minify: 'terser',
-    cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
+          utils: ['@/lib/utils'],
         }
       }
-    }
+    },
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 500
   }
 });
