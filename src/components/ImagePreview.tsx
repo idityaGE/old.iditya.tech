@@ -42,22 +42,26 @@ export default function ImagePreview({
       <DialogPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
         <DialogPrimitive.Portal>
           <DialogPrimitive.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50" />
-          <DialogPrimitive.Content className="fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-50 w-auto h-auto p-4">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute right-4 top-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/75 focus:outline-none"
-            >
-              <X className="h-6 w-6" />
-              <span className="sr-only">Close</span>
-            </button>
-            <div className="w-full max-h-[90vh] flex items-center justify-center">
-              <img
-                src={src}
-                alt={alt}
-                width={width ? width * 1.5 : undefined}
-                height={height ? height * 1.5 : undefined}
-                className="max-w-full max-h-full object-contain rounded-lg"
-              />
+          <DialogPrimitive.Content className="fixed inset-4 md:inset-auto md:left-[50%] md:top-[50%] md:translate-x-[-50%] md:translate-y-[-50%] z-50 w-auto h-auto">
+            <div className="relative w-full h-full max-w-7xl mx-auto">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute right-2 top-2 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/75 focus:outline-none"
+              >
+                <X className="h-4 w-4 md:h-6 md:w-6" />
+                <span className="sr-only">Close</span>
+              </button>
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src={src}
+                  alt={alt}
+                  className="w-full h-full md:h-auto max-h-[90vh] object-contain rounded-lg"
+                  style={{
+                    maxWidth: width ? `min(${width * 2}px, 100vw - 2rem)` : '100vw - 2rem',
+                    maxHeight: height ? `min(${height * 2}px, 90vh)` : '90vh'
+                  }}
+                />
+              </div>
             </div>
           </DialogPrimitive.Content>
         </DialogPrimitive.Portal>
