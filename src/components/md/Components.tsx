@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import 'highlight.js/styles/github-dark.css';
 import { VideoPlayer } from './Videoplayer';
+import ImagePreview from '@/components/ImagePreview';
 
 type MarkdownComponentProps = {
   node?: any;
@@ -152,13 +153,9 @@ const components: CustomComponents = {
   ),
 
   img: ({ node, alt, src, ...props }: MarkdownComponentProps & { alt?: string; src?: string }) => (
-    <img
-      className={cn(
-        "rounded-md border",
-        "border-muted max-w-full h-auto mb-4"
-      )}
-      loading="lazy"
-      alt={alt || ''}
+    <ImagePreview
+      className="rounded-md border border-muted mb-4"
+      alt={alt || 'Project Preview Images'}
       src={src}
       {...props}
     />

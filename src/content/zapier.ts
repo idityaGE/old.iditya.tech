@@ -1,5 +1,5 @@
 export default `
-<img src="https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735751888/zapierlogo_f8vf2h.png" alt="Logo" width="100" />
+<img src="https://res.cloudinary.com/dwdbqwqxk/image/upload/v1735751888/zapierlogo_f8vf2h.png" alt="Logo" width="100" height="20" />
 
 # _Zapier ⚡
 
