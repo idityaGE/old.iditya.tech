@@ -11,6 +11,13 @@ import { PersonalData } from "@/config/personal.config";
 const Bento = () => {
   const features = [
     {
+      Icon: Atom,
+      name: "Project",
+      isIconHidden: true,
+      background: <Projects />,
+      className: "lg:col-start-1 lg:col-end-5 lg:row-start-4 lg:row-end-5",
+    },
+    {
       Icon: MapPin,
       name: `${PersonalData.address.city}, ${PersonalData.address.country}`,
       background: <GlobeCard />,
@@ -28,23 +35,10 @@ const Bento = () => {
       background: <ConnectCard />,
       className: "lg:col-start-3 lg:col-end-5 lg:row-start-3 lg:row-end-4",
     },
-    {
-      Icon: Atom,
-      name: "Notifications",
-      background: <div className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:opacity-0 lg:flex hidden -z-10",
-    },
-    {
-      Icon: Atom,
-      name: "Project",
-      isIconHidden: true,
-      background: <Projects />,
-      className: "lg:col-start-1 lg:col-end-5 lg:row-start-4 lg:row-end-5",
-    },
   ]
 
   return (
-    <BentoGrid className="lg:grid-rows-3">
+    <BentoGrid className='lg:grid-cols-4 lg:gap-4'>
       {features.map((feature) => (
         <BentoCard
           key={feature.name}

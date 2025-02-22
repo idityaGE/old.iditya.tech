@@ -6,7 +6,6 @@ import { LinkData } from "@/config/links.config";
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const ConnectCard = () => {
-  // Memoize social links to prevent unnecessary recalculations
   const socialLinks = [
     {
       Icon: Github,
@@ -32,11 +31,11 @@ export const ConnectCard = () => {
 
   return (
     <div className="relative z-20">
-      <Dock magnification={60} distance={100}>
+      <Dock magnification={60} distance={100} className="flex gap-5">
         {socialLinks.map(({ Icon, href, about }) => (
           <DockIcon
             key={href}
-            className="bg-black/10 dark:bg-white/10 p-2 mb-3"
+            className="bg-black/10 dark:bg-white/10 p-1 mb-2 scale-110"
           >
             <a href={href} target="_blank" rel="noopener noreferrer" about={about}>
               <Icon className="size-full" />

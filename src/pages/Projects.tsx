@@ -1,7 +1,6 @@
 import { ProjectCard } from "@/components/project/card/project-card";
 import { ProjectData } from "@/config/project.config";
 import { LinkData } from "@/config/links.config";
-import { Mail } from "lucide-react";
 
 const Projects = () => {
   const projects = [...ProjectData];
@@ -26,17 +25,9 @@ const Projects = () => {
           </a>
         </p>
         <div className="mb-4 text-sm">
-          <p className="text-rose-500 mb-1">
-            Note: These Projects are hosted using free services, which may sometimes enter hibernation mode or encounter issues. If something isn't working, please email me, and I'll resolve it as soon as possible.🙏 &nbsp;
+          <p className="text-rose-600 mb-1">
+            Note: These Projects are hosted using free services, which may sometimes enter hibernation mode or encounter issues. If something isn't working, please email me, and I'll resolve it as soon as possible.🙏
           </p>
-          <a
-            href={LinkData.mail}
-            about="Mail Link"
-            className='dark:hover:text-white hover:text-black duration-300'
-          >
-            <Mail size={18} className='inline-block' />
-            <b className='font-semibold underline underline-offset-2 px-1'><strong>{LinkData.gmail}</strong></b>
-          </a>
         </div>
       </div>
 

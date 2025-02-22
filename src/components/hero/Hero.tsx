@@ -17,7 +17,7 @@ const Hero = () => {
           or&nbsp;
           <a href={LinkData.mail} className='dark:hover:text-white hover:text-black  duration-300' about="Mail Link">
             <Mail size={18} className='inline-block' />
-            <b className='font-semibold underline underline-offset-2'><strong>{LinkData.gmail}</strong></b>
+            <b className='font-semibold underline underline-offset-2 pl-1'><strong>{LinkData.gmail}</strong></b>
           </a>
           .
         </h6>
