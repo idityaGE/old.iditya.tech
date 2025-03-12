@@ -1,7 +1,7 @@
 import Ripple from "@/components/magicui/ripple";
 import { Link } from "react-router-dom";
 
-export function Projects() {
+export default function Projects() {
   return (
     <Link
       to="/projects"

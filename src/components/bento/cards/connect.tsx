@@ -5,7 +5,7 @@ import { LinkData } from "@/config/links.config";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
-export const ConnectCard = () => {
+const ConnectCard = () => {
   const socialLinks = [
     {
       Icon: Github,

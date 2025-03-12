@@ -50,9 +50,11 @@ const slugs = ["typescript",
   "go",
   "socket.io",
   "graphql",
+  "solana",
+  "ethereum"
 ];
 
-export function SkillCard() {
+export default function SkillCard() {
   return (
     <div className="pb-6 w-96 mx-auto">
       <IconCloud iconSlugs={slugs} />
