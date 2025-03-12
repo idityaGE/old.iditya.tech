@@ -108,9 +108,9 @@ const MyPage = () => {
   }, [state]);
 
   return (
-    <main className="relative w-full lg:h-[90vh] p-4 sm:p-2 lg:mt-[10vh] mt-16">
+    <main className="relative w-full lg:h-[90vh] p-3 sm:p-2 mt-20">
       <div className="w-full h-full rounded-2xl sm:border flex flex-wrap justify-between lg:divide-x">
-        <div className="relative w-full lg:w-2/5 p-2 md:p-8">
+        <div className="relative w-full lg:w-2/5 p-1.5 md:p-8">
           <div className="flex justify-between mb-4">
             <Link
               to="/projects"
@@ -126,7 +126,7 @@ const MyPage = () => {
         </div>
         <div
           id="tab-section"
-          className="relative w-full lg:h-full lg:w-3/5 p-2 md:p-8 overflow-y-scroll"
+          className="relative w-full lg:h-full lg:w-3/5 p-1.5 md:p-8 overflow-y-scroll"
         >
           <div className="min-h-screen">{renderContent}</div>
         </div>
