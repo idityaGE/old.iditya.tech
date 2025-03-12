@@ -5,6 +5,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import './index.css'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
 
+import RootLayout from '@/RootLayout.tsx'
 import Layout from '@/Layout.tsx'
 import Home from '@/pages/Home.tsx'
 const About = lazy(() => import('@/pages/About.tsx'))
@@ -20,7 +21,8 @@ const LoadingSpinner = () => (
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
+    <Route element={<RootLayout />}>
+      {/* Routes with Layout (footer) */}
       <Route path="/" element={<Layout />}>
         <Route index element={
           <Suspense fallback={<LoadingSpinner />}>
@@ -38,17 +40,20 @@ const router = createBrowserRouter(
           </Suspense>
         } />
       </Route>
+
+      {/* ProjectPage has full width and no footer */}
       <Route path='/projects/:slug' element={
         <Suspense fallback={<LoadingSpinner />}>
           <ProjectPage />
         </Suspense>
       } />
+
       <Route path="*" element={
         <Suspense fallback={<LoadingSpinner />}>
           <NotFound />
         </Suspense>
       } />
-    </>
+    </Route>
   )
 )
 
