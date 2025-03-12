@@ -1,6 +1,7 @@
 import { ProjectCard } from "@/components/project/card/project-card";
 import { ProjectData } from "@/config/project.config";
 import { LinkData } from "@/config/links.config";
+import { Mail } from "lucide-react";
 
 const Projects = () => {
   const projects = [...ProjectData];
@@ -12,7 +13,7 @@ const Projects = () => {
         <p className="text-base text-muted-foreground mb-5">
           I love building side projects that solve either my own or someone else's problems. Here is an extensive list of all the stuff I have built.
         </p>
-        <p className="text-base text-muted-foreground mb-4">
+        <p className="text-base text-muted-foreground mb-6">
           Want to discuss on projects or collaborate on something? Feel free to&nbsp;
           <a
             href={LinkData.twitter}
@@ -24,11 +25,24 @@ const Projects = () => {
             </b>
           </a>
         </p>
-        <div className="mb-4 text-sm">
-          <p className="text-rose-600 mb-1">
-            Note: These Projects are hosted using free services, which may sometimes enter hibernation mode or encounter issues. If something isn't working, please email me, and I'll resolve it as soon as possible.🙏
+
+        <div className="bg-muted/50 rounded-lg p-4 border border-border flex items-start gap-3 mb-9">
+          <div className="text-amber-500 mt-0.5 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+              <path d="M12 9v4"></path>
+              <path d="M12 17h.01"></path>
+            </svg>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            These projects are hosted on free services that may occasionally enter hibernation mode.
+            If you encounter any issues, please{" "}
+            <a href={`mailto:${LinkData.gmail || 'contact@example.com'}`} className="text-primary hover:underline inline-flex items-center gap-1">
+              contact me <Mail className="h-3 w-3" />
+            </a>
           </p>
         </div>
+
       </div>
 
       <div className="flex flex-col gap-4">
