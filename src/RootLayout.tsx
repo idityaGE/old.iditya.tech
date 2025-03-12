@@ -19,7 +19,7 @@ const RootLayout = () => {
         <Logger />
       </Suspense>
       <ScrollRestoration />
-      <div className={`mx-auto min-h-screen flex flex-col ${isProjectPage ? '' : 'max-w-4xl'}`}>
+      <div className={`mx-auto min-h-screen flex flex-col   ${isProjectPage ? '' : 'max-w-4xl'}`}>
         <img
           src="https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213921/gradient_zecf4g.webp"
           alt="Gradient IMG"

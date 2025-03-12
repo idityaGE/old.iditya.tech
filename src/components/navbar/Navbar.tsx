@@ -14,7 +14,7 @@ import { useState } from "react";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-4xl px-4 z-50">
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-4xl px-3 z-50">
       <div className="h-12 bg-white/30 rounded-lg dark:bg-black/30 backdrop-filter backdrop-blur-lg shadow-lg">
         <div className="h-full w-full mx-auto flex justify-between items-center px-4">
           <Logo />
