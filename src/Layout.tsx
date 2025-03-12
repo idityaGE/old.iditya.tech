@@ -7,7 +7,7 @@ import { Mail } from "lucide-react";
 const Layout = () => {
   return (
     <>
-      <div className="flex-grow mt-10 md:mt-12 px-2 mx-3">
+      <div className="flex-grow mt-24 md:mt-28 px-2 mx-3 max-w-4xl justify-center w-full">
         <Outlet />
       </div>
       <footer className="mt-5 text-sm">

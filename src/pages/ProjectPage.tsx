@@ -108,7 +108,7 @@ const MyPage = () => {
   }, [state]);
 
   return (
-    <main className="relative w-full lg:h-screen p-4 sm:p-5">
+    <main className="relative w-full lg:h-[90vh] p-4 sm:p-2 lg:mt-[10vh] md:mt-[11vh]">
       <div className="w-full h-full rounded-2xl sm:border flex flex-wrap justify-between lg:divide-x">
         <div className="relative w-full lg:w-2/5 p-2 md:p-8">
           <div className="flex justify-between mb-4">
