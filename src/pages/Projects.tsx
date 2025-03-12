@@ -1,19 +1,47 @@
 import { ProjectCard } from "@/components/project/card/project-card";
 import { ProjectData } from "@/config/project.config";
 import { LinkData } from "@/config/links.config";
-import { Mail } from "lucide-react";
+import { Mail, AlertTriangle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [...ProjectData];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div>
-      <div className="px-2">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.div className="px-2" variants={itemVariants}>
         <h1 className="text-3xl font-bold mb-7">Projects</h1>
-        <p className="text-base text-muted-foreground mb-5">
+        <motion.p
+          className="text-base text-muted-foreground mb-5"
+          variants={itemVariants}
+        >
           I love building side projects that solve either my own or someone else's problems. Here is an extensive list of all the stuff I have built.
-        </p>
-        <p className="text-base text-muted-foreground mb-6">
+        </motion.p>
+
+        <motion.p
+          className="text-base text-muted-foreground mb-6"
+          variants={itemVariants}
+        >
           Want to discuss on projects or collaborate on something? Feel free to&nbsp;
           <a
             href={LinkData.twitter}
@@ -24,18 +52,19 @@ const Projects = () => {
               <strong>{LinkData.twitter.split("/").pop()}</strong>
             </b>
           </a>
-        </p>
+        </motion.p>
 
-        <div className="bg-muted/50 rounded-lg p-4 border border-border flex items-start gap-3 mb-9">
+        <motion.div
+          className="bg-muted/50 rounded-lg p-4 border border-border flex items-start gap-3 mb-9"
+          variants={itemVariants}
+          whileHover={{ scale: 1.01 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
           <div className="text-amber-500 mt-0.5 flex-shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
-              <path d="M12 9v4"></path>
-              <path d="M12 17h.01"></path>
-            </svg>
+            <AlertTriangle size={20} />
           </div>
           <p className="text-sm text-muted-foreground">
-            These projects are hosted on free services that may occasionally enter hibernation mode.
+            These projects are hosted on free services that may occasionally enter hibernation mode. <br />
             If you encounter any issues, please{" "}
             <a
               href={LinkData.mail}
@@ -44,16 +73,27 @@ const Projects = () => {
               <Mail size={18} />
             </a>
           </p>
-        </div>
+        </motion.div>
+      </motion.div>
 
-      </div>
-
-      <div className="flex flex-col gap-4">
+      <motion.div
+        className="flex flex-col gap-4"
+        variants={containerVariants}
+      >
         {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{
+              y: -5,
+              transition: { type: "spring", stiffness: 400, damping: 15 }
+            }}
+          >
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
