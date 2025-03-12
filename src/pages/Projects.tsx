@@ -37,8 +37,11 @@ const Projects = () => {
           <p className="text-sm text-muted-foreground">
             These projects are hosted on free services that may occasionally enter hibernation mode.
             If you encounter any issues, please{" "}
-            <a href={`mailto:${LinkData.gmail || 'contact@example.com'}`} className="text-primary hover:underline inline-flex items-center gap-1">
-              contact me <Mail className="h-3 w-3" />
+            <a
+              href={LinkData.mail}
+              className="inline-flex items-center gap-1 font-semibold underline underline-offset-2 dark:hover:text-white hover:text-black duration-200">
+              contact me
+              <Mail size={18} />
             </a>
           </p>
         </div>
