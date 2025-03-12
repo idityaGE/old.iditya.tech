@@ -64,14 +64,14 @@ export const studentEmailConfig = {
   college: {
     name: 'Your College Name',
     shortHand: 'Short Name',
-    },
-    localPart: {
-      example: "2023BTCSE017", // enrollment ID
-      regex: /^\d{4}[A-Za-z]+\d{3}$/,  // Regex for enrollment ID
-      },
-      domainName: 'yourcollege.ac.in',
-      support_email: 'support@yourcollege.ac.in'
-      }
+  },
+  localPart: {
+    example: "2023BTCSE017", // enrollment ID
+    regex: /^\d{4}[A-Za-z]+\d{3}$/,  // Regex for enrollment ID
+  },
+  domainName: 'yourcollege.ac.in',
+  support_email: 'support@yourcollege.ac.in'
+}
 \`\`\`
       
   1. Update the \`college\` and \`domainName\` fields to match your college.

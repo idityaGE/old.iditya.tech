@@ -27,7 +27,7 @@ const RootLayout = () => {
           fetchPriority="high"
         />
         <Navbar />
-        <div className="flex-grow">
+        <div className="flex-grow mx-3">
           <Outlet />
         </div>
       </div>
