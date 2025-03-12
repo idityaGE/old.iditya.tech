@@ -30,7 +30,7 @@ export const ProjectCard = memo(({
       <div className="flex flex-col w-full tablet:w-3/5">
         <Link
           to={`/projects/${slug}`}
-          className="block mb-3"
+          className="block mb-3 group/link"
           aria-label={`View details of ${title} project`}
         >
           <div className="inline-flex items-center gap-1 mb-3">
