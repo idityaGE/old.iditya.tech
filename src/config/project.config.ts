@@ -21,23 +21,6 @@ export const ProjectData = [
     ]
   },
   {
-    title: "GitHub Bento Stats",
-    slug: "github-bento-stats",
-    description: "A React component to display GitHub stats in a bento-style layout.",
-    images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1740995404/Screenshot_2025-03-03_030157_kq3hmb.png",
-    ],
-    githubLink: "https://github.com/idityaGE/Github-bento-stats.git",
-    liveLink: "https://gitwrapped-psi.vercel.app/",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "shadcn ui",
-      "graphQL",
-    ]
-  },
-  {
     title: "_Zapier ⚡",
     slug: "zapier",
     description: "An open-source app to automate workflows with a trigger-action framework. Easily connect apps, customize integrations, and boost productivity. Perfect for seamless task automation and workflow management.",
@@ -58,6 +41,42 @@ export const ProjectData = [
       "Postgres",
       "shadcn ui",
       "zod",
+    ]
+  },
+  {
+    title: "Solana Token Launchpad",
+    slug: "solana-token-launchpad",
+    description: "A powerful web application that enables users to launch their own tokens on the Solana blockchain with complete metadata support.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1742220433/Screenshot_2025-03-17_142015_wbvw1o.png",
+    ],
+    githubLink: "https://github.com/idityaGE/Solana-Token-Lauchpad",
+    liveLink: "https://solana-token-lauchpad.vercel.app/",
+    techStack: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Shadcn",
+      "Solana Web3.js",
+      "Solana SPL Token",
+      "Anza Wallet Adapter",
+    ]
+  },
+  {
+    title: "GitHub Bento Stats",
+    slug: "github-bento-stats",
+    description: "A React component to display GitHub stats in a bento-style layout.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1740995404/Screenshot_2025-03-03_030157_kq3hmb.png",
+    ],
+    githubLink: "https://github.com/idityaGE/Github-bento-stats.git",
+    liveLink: "https://gitwrapped-psi.vercel.app/",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "shadcn ui",
+      "graphQL",
     ]
   },
   {
