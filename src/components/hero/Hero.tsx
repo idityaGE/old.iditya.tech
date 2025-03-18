@@ -8,8 +8,19 @@ const Hero = () => {
   return (
     <div className='mb-10'>
       <h1 id="name" className='text-4xl font-bold leading-12'>I'm <br /> {PersonalData.name}</h1>
-      <h6 className='text-base text-muted-foreground pt-3'>{PersonalData.age}y/o Tech Enthusiast, {PersonalData.address.country}</h6>
-      <div className='mt-5 xl:w-3/4'>
+      <div>
+        <h6 className='text-base text-muted-foreground pt-3'>{PersonalData.age}y/o Tech Enthusiast, {PersonalData.address.country}</h6>
+
+        <div className="flex items-center gap-1.5 mt-3">
+          <div className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+          </div>
+          <span className="text-xs text-muted-foreground">Available for hire</span>
+        </div>
+
+      </div>
+      <div className='mt-4 xl:w-3/4'>
         <h6 className='text-base text-muted-foreground'>{PersonalData.description}</h6>
       </div>
       <div className='mt-5'>

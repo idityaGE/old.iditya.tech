@@ -6,7 +6,7 @@ export const PersonalData = {
   title: "Student / Coder",
   avatar: "https://i.pinimg.com/736x/35/2b/03/352b03faa5630e37e1efbb9798b633e1.jpg",
   favicon: "./favicon.ico",
-  age: 19,
+  age: 20,
   about: [
     "Hello! I'm a passionate developer with a keen interest in creating elegant and efficient solutions. With a strong foundation in computer science and years of hands-on experience, I specialize in full-stack development, focusing on modern web technologies.",
     "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through blog posts and community meetups. I'm always excited about new challenges and opportunities to grow both personally and professionally."
