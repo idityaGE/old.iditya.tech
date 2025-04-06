@@ -99,6 +99,18 @@ const components: CustomComponents = {
     )} {...props} />
   ),
 
+  strong: ({ node, children, ...props }: MarkdownComponentProps) => (
+    <strong
+      className={cn(
+        "font-bold",
+        "text-foreground"
+      )}
+      {...props}
+    >
+      {children}
+    </strong>
+  ),
+
   // Code blocks with theme support
   code: ({ node, inline, className, children, ...props }: MarkdownComponentProps) => {
     const match = /language-(\w+)/.exec(className || '');
@@ -154,7 +166,7 @@ const components: CustomComponents = {
 
   img: ({ node, alt, src, ...props }: MarkdownComponentProps & { alt?: string; src?: string }) => (
     <ImagePreview
-      className="rounded-md border border-muted mb-4"
+      className="rounded-md border-2 border-muted mb-4"
       alt={alt || 'Project Preview Images'}
       src={src}
       {...props}

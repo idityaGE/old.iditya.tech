@@ -3,7 +3,7 @@ export type ProjectCardProps = {
   description: string
   images: string[]
   liveLink?: string
-  githubLink: string
+  githubLink?: string
   techStack: string[]
   slug: string
 }

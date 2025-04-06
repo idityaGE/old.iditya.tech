@@ -31,13 +31,13 @@ export function ProjectCard2({ title, description, images, liveLink, githubLink,
       </div>
       <div className="flex flex-wrap items-center gap-2 mb-4">
         <Button asChild variant="link" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground'>
-          <a href={githubLink} target="_blank" rel="noopener noreferrer">
+          {githubLink && (<a href={githubLink} target="_blank" rel="noopener noreferrer">
             <Github className="mr-2 h-4 w-4" /> GitHub
-          </a>
+          </a>)}
         </Button>
-        {liveLink && <Button asChild variant="link" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground'>
+        {liveLink && <Button asChild variant="link" className='border border-input bg-background hover:bg-accent hover:text-accent-foreground group/demo'>
           <a href={liveLink} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+            <ExternalLink className="mr-2 h-4 w-4 transition-transform duration-300 group-hover/demo:rotate-45" /> Live Demo
           </a>
         </Button>}
       </div>

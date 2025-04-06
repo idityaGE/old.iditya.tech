@@ -51,7 +51,7 @@ export const ProjectCard = memo(({
         </div>
 
         <div className="flex flex-wrap items-center gap-2 mt-auto">
-          <a
+          {githubLink && (<a
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -59,16 +59,16 @@ export const ProjectCard = memo(({
             className="inline-flex items-center px-3 py-1.5 border border-input bg-background hover:bg-accent hover:text-accent-foreground text-sm font-medium rounded-md transition-colors"
           >
             <Github className="mr-2 h-4 w-4" /> GitHub
-          </a>
+          </a>)}
           {liveLink && (
             <a
               href={liveLink}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Live demo of ${title}`}
-              className="inline-flex items-center px-3 py-1.5 border border-input bg-background hover:bg-accent hover:text-accent-foreground text-sm font-medium rounded-md transition-colors"
+              className="inline-flex items-center px-3 py-1.5 border border-input bg-background hover:bg-accent hover:text-accent-foreground text-sm font-medium rounded-md transition-colors group/demo"
             >
-              <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+              <ExternalLink className="mr-2 h-4 w-4 transition-transform duration-300 group-hover/demo:rotate-45" /> Live Demo
             </a>
           )}
         </div>

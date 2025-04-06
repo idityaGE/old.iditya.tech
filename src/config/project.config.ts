@@ -21,6 +21,45 @@ export const ProjectData = [
     ]
   },
   {
+    title: "BloomKnot",
+    slug: "bloomknot",
+    description: "A comprehensive wedding planning platform where couples can explore a wide variety of options for their special day. From venues to vendors, customize every detail while our admin team handles all the logistics and coordination to ensure a stress-free wedding experience.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961520/Screenshot_2025-04-06_231456_vreduh.png",
+    ],
+    githubLink: "https://github.com/idityaGE/BloomKnot",
+    liveLink: "https://bloomknot.vercel.app/",
+    techStack: [
+      "Next.js",
+      "Cal.com",
+      "Better auth",
+      "TypeScript",
+      "Node.js",
+      "Nodemailer",
+      "Prisma",
+      "Postgres",
+      "shadcn ui",
+    ]
+  },
+  {
+    title: "Hyper Digital",
+    slug: "hyperdigital",
+    description: "A full-service digital agency offering web development, mobile applications, UI/UX design, and digital marketing solutions. We help businesses transform their digital presence with cutting-edge technology and strategic expertise tailored to their unique needs and goals.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961458/Screenshot_2025-04-05_195352_txevuu.png",
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961456/Screenshot_2025-04-05_195334_elsa83.png",
+    ],
+    liveLink: "https://www.hyperdigital.in/",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Cal.com",
+      "Node.js",
+      "Nodemailer",
+      "shadcn ui",
+    ]
+  },
+  {
     title: "_Zapier ⚡",
     slug: "zapier",
     description: "An open-source app to automate workflows with a trigger-action framework. Easily connect apps, customize integrations, and boost productivity. Perfect for seamless task automation and workflow management.",
@@ -99,66 +138,66 @@ export const ProjectData = [
       "react-syntax-highlighter"
     ]
   },
-  {
-    title: "Polish Bot",
-    slug: "polish-bot",
-    description: "PolishBot is a Discord bot designed to help users transform casual messages into polished, professional communication.",
-    images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213904/img1_in1afu.png",
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213904/img2_p427fi.png"
-    ],
-    githubLink: "https://github.com/idityaGE/PolishBot",
-    liveLink: "https://discord.com/oauth2/authorize?client_id=1298776826151436430&permissions=8&integration_type=0&scope=bot",
-    techStack: [
-      "Node.js",
-      "TypeScript",
-      "Discord.js",
-      "Gemini-API"
-    ]
-  },
-  {
-    title: "Discord Clone",
-    slug: "discord-clone",
-    description: "Realtime chat application with voice and video call features. Built with Next js, TypeScript, and Tailwind CSS.",
-    images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213891/Discord_1_hq54p8.png",
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213892/Discord_3_fpkm25.png",
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213891/Discord_2_bqtrun.png"
-    ],
-    liveLink: "https://discord-idityage.up.railway.app",
-    githubLink: "https://github.com/idityaGE/discord-app",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Socket.io",
-      "LiveKit",
-      "Prisma",
-      "shadcn ui",
-      "tanstack-query",
-      "Uploadthing",
-      "Clerk"
-    ]
-  },
-  {
-    title: "Social Media Analyzer",
-    slug: "social-media-analyzer",
-    description: "A web app that analyzes social media profiles and provides insights on the user's social media presence. It utilizes Langflow for workflow creation and GPT integration, and DataStax Astra DB for database operations.",
-    images: [
-      "https://github.com/idityaGE/Social-Media-Performance-Analysis/blob/main/.github/images/landing.png?raw=true"
-    ],
-    liveLink: "https://insightai-eight.vercel.app/",
-    githubLink: "https://github.com/idityaGE/Social-Media-Performance-Analysis",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Langflow",
-      "GPT-3",
-      "DataStax Astra DB",
-      "shadcn ui",
-      'recharts'
-    ]
-  },
+  // {
+  //   title: "Polish Bot",
+  //   slug: "polish-bot",
+  //   description: "PolishBot is a Discord bot designed to help users transform casual messages into polished, professional communication.",
+  //   images: [
+  //     "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213904/img1_in1afu.png",
+  //     "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213904/img2_p427fi.png"
+  //   ],
+  //   githubLink: "https://github.com/idityaGE/PolishBot",
+  //   liveLink: "https://discord.com/oauth2/authorize?client_id=1298776826151436430&permissions=8&integration_type=0&scope=bot",
+  //   techStack: [
+  //     "Node.js",
+  //     "TypeScript",
+  //     "Discord.js",
+  //     "Gemini-API"
+  //   ]
+  // },
+  // {
+  //   title: "Discord Clone",
+  //   slug: "discord-clone",
+  //   description: "Realtime chat application with voice and video call features. Built with Next js, TypeScript, and Tailwind CSS.",
+  //   images: [
+  //     "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213891/Discord_1_hq54p8.png",
+  //     "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213892/Discord_3_fpkm25.png",
+  //     "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1730213891/Discord_2_bqtrun.png"
+  //   ],
+  //   liveLink: "https://discord-idityage.up.railway.app",
+  //   githubLink: "https://github.com/idityaGE/discord-app",
+  //   techStack: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "PostgreSQL",
+  //     "Socket.io",
+  //     "LiveKit",
+  //     "Prisma",
+  //     "shadcn ui",
+  //     "tanstack-query",
+  //     "Uploadthing",
+  //     "Clerk"
+  //   ]
+  // },
+  // {
+  //   title: "Social Media Analyzer",
+  //   slug: "social-media-analyzer",
+  //   description: "A web app that analyzes social media profiles and provides insights on the user's social media presence. It utilizes Langflow for workflow creation and GPT integration, and DataStax Astra DB for database operations.",
+  //   images: [
+  //     "https://github.com/idityaGE/Social-Media-Performance-Analysis/blob/main/.github/images/landing.png?raw=true"
+  //   ],
+  //   liveLink: "https://insightai-eight.vercel.app/",
+  //   githubLink: "https://github.com/idityaGE/Social-Media-Performance-Analysis",
+  //   techStack: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "Langflow",
+  //     "GPT-3",
+  //     "DataStax Astra DB",
+  //     "shadcn ui",
+  //     'recharts'
+  //   ]
+  // },
   // {
   //   title: "Contact Form",
   //   slug: "contact-form",
