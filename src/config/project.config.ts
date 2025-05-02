@@ -83,6 +83,28 @@ export const ProjectData = [
     ]
   },
   {
+    title: "LST Solana Demo",
+    slug: "lst-solana-demo",
+    description: "Stake SOL, get lSOL. Simple liquid staking with instant redemption.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1746219693/Screenshot_2025-05-03_022609_pcimso.png",
+    ],
+    githubLink: "https://github.com/idityaGE/WEB-3/tree/main/13-LST/platform-code",
+    techStack: [
+      "Next.js",
+      "Turborepo",
+      "Express js",
+      "TypeScript",
+      "Tanstack Query",
+      "Helius Webhook",
+      "TailwindCSS",
+      "Shadcn",
+      "Solana Web3.js",
+      "Solana SPL Token",
+      "bs58",
+    ]
+  },
+  {
     title: "Solana Token Launchpad",
     slug: "solana-token-launchpad",
     description: "A powerful web application that enables users to launch their own tokens on the Solana blockchain with complete metadata support.",
