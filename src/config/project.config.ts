@@ -28,7 +28,7 @@ export const ProjectData = [
       "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961520/Screenshot_2025-04-06_231456_vreduh.png",
     ],
     githubLink: "https://github.com/idityaGE/BloomKnot",
-    liveLink: "https://bloomknot.vercel.app/",
+    liveLink: "https://bloomknot.in",
     techStack: [
       "Next.js",
       "Cal.com",
