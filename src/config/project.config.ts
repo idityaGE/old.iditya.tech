@@ -56,6 +56,7 @@ export const ProjectData = [
       "Cal.com",
       "Node.js",
       "Nodemailer",
+      "Motion",
       "shadcn ui",
     ]
   },
