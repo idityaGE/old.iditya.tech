@@ -1,6 +1,7 @@
 export const ProjectData = [
   {
     title: "Blind Chat",
+    type: "personal",
     slug: "blind-chat",
     description: "An open-source web app for college students to connect using their official email IDs. Easily customizable for any college with a simple config file.",
     images: [
@@ -22,12 +23,13 @@ export const ProjectData = [
   },
   {
     title: "BloomKnot",
+    type: "freelance",
     slug: "bloomknot",
     description: "A comprehensive wedding planning platform where couples can explore a wide variety of options for their special day. From venues to vendors, customize every detail while our admin team handles all the logistics and coordination to ensure a stress-free wedding experience.",
     images: [
       "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961520/Screenshot_2025-04-06_231456_vreduh.png",
     ],
-    githubLink: "https://github.com/idityaGE/BloomKnot",
+    // githubLink: "https://github.com/idityaGE/BloomKnot",
     liveLink: "https://bloomknot.in",
     techStack: [
       "Next.js",
@@ -43,6 +45,7 @@ export const ProjectData = [
   },
   {
     title: "Hyper Digital",
+    type: "freelance",
     slug: "hyperdigital",
     description: "A full-service digital agency offering web development, mobile applications, UI/UX design, and digital marketing solutions. We help businesses transform their digital presence with cutting-edge technology and strategic expertise tailored to their unique needs and goals.",
     images: [
@@ -62,6 +65,7 @@ export const ProjectData = [
   },
   {
     title: "_Zapier ⚡",
+    type: "personal",
     slug: "zapier",
     description: "An open-source app to automate workflows with a trigger-action framework. Easily connect apps, customize integrations, and boost productivity. Perfect for seamless task automation and workflow management.",
     images: [
@@ -85,6 +89,7 @@ export const ProjectData = [
   },
   {
     title: "LST Solana Demo",
+    type: "personal",
     slug: "lst-solana-demo",
     description: "Stake SOL, get lSOL. Simple liquid staking with instant redemption.",
     images: [
@@ -107,6 +112,7 @@ export const ProjectData = [
   },
   {
     title: "Solana Token Launchpad",
+    type: "personal",
     slug: "solana-token-launchpad",
     description: "A powerful web application that enables users to launch their own tokens on the Solana blockchain with complete metadata support.",
     images: [
@@ -126,6 +132,7 @@ export const ProjectData = [
   },
   {
     title: "GitHub Bento Stats",
+    type: "personal",
     slug: "github-bento-stats",
     description: "A React component to display GitHub stats in a bento-style layout.",
     images: [
@@ -143,6 +150,7 @@ export const ProjectData = [
   },
   {
     title: "Assignment Code to PDF",
+    type: "personal",
     slug: "assignment-code-to-pdf",
     description: "Converts questions, codes and outputs to PDF with syntax highlighting. Built with Next.js, TypeScript, html2canvas, jsPDF, and Tailwind CSS.",
     images: [

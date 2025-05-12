@@ -1,9 +1,9 @@
 import { ExternalLink, Github } from 'lucide-react'
 import type { ProjectCardProps } from "@/types/project"
 import { Button } from '@/components/ui/button'
+import { useTypeColor } from '../card/project-card'
 
-
-export function ProjectCard2({ title, description, images, liveLink, githubLink, techStack }: ProjectCardProps) {
+export function ProjectCard2({ title, type, description, images, liveLink, githubLink, techStack }: ProjectCardProps) {
   return (
     <div>
       <img
@@ -12,8 +12,16 @@ export function ProjectCard2({ title, description, images, liveLink, githubLink,
         height={400}
         className='border rounded-xl mx-auto'
       />
-
-      <h1 className="text-3xl font-bold py-1 mt-6 mb-4">{title}</h1>
+      <div className="flex items-center gap-2 mt-6 mb-4">
+        <h1 className="text-3xl font-bold py-1">{title}</h1>
+        {type && (
+          <span
+            className={`inline-flex items-center px-2 py-1 text-xs font-light rounded-full text-white ${useTypeColor(type)} bg-opacity-80`}
+          >
+            {type.charAt(0).toUpperCase() + type.slice(1)}
+          </span>
+        )}
+      </div>
       <p className="text-sm text-secondary-foreground/80 font-light max-w-2xl mb-4">
         {description}
       </p>

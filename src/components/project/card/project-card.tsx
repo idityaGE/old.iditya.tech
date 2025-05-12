@@ -3,8 +3,20 @@ import { ExternalLink, Github, StepForward } from 'lucide-react';
 import type { ProjectCardProps } from "@/types/project";
 import { Link } from 'react-router-dom';
 
+export const useTypeColor = (type: string) => {
+  switch (type) {
+    case 'personal':
+      return 'bg-sky-600';
+    case 'freelance':
+      return 'bg-emerald-600';
+    default:
+      return 'bg-neutral-600';
+  }
+}
+
 export const ProjectCard = memo(({
   title,
+  type,
   description,
   images,
   liveLink,
@@ -33,9 +45,14 @@ export const ProjectCard = memo(({
           className="block mb-3 group/link"
           aria-label={`View details of ${title} project`}
         >
-          <div className="inline-flex items-center gap-1 mb-3">
+          <div className="inline-flex items-center gap-1 mt-2 md:mt-0 mb-3">
             <div className="flex items-center gap-2 flex-wrap">
               <h2 className="text-xl font-bold font-heading">{title}</h2>
+              {type && (<span
+                className={`inline-flex items-center px-2 py-1 text-xs font-light rounded-full text-white ${useTypeColor(type)} bg-opacity-80`}
+              >
+                {type.charAt(0).toUpperCase() + type.slice(1)}
+              </span>)}
             </div>
             <span className="-translate-x-1 opacity-0 group-hover/link:translate-x-0 group-hover/link:opacity-100 transition-all duration-100 ease-in-out">
               <StepForward size={12} />
