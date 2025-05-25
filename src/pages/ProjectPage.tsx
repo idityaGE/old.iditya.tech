@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
 import MarkdownRenderer from '@/components/md/MarkdownRenderer';
@@ -22,8 +22,15 @@ const initialState: ContentState = {
 
 const MyPage = () => {
   const [state, setState] = useState<ContentState>(initialState);
-
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleEscapeKey = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape' || event.key === 'Backspace') {
+      event.preventDefault();
+      navigate(-1);      
+    }
+  }, [])
 
   // Memoize pathname parsing to prevent unnecessary recalculations
   const fileName = useMemo(() => {
@@ -71,7 +78,11 @@ const MyPage = () => {
   // Simplified useEffect with error handling
   useEffect(() => {
     loadContent();
-  }, [loadContent]);
+    window.addEventListener('keydown', handleEscapeKey);
+    return () => {
+      window.removeEventListener('keydown', handleEscapeKey);
+    }
+  }, [loadContent, handleEscapeKey]);
 
   const LoadingState = () => (
     <div className="flex items-center justify-center p-4">

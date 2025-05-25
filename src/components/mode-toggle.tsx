@@ -1,32 +1,10 @@
 import { Moon, Sun } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { useTheme } from "./theme-provider"
+import { useToggleTheme } from "@/hooks/useToggleTheme"
 
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme()
-
-  const switchTheme = () => {
-    switch (theme) {
-      case "light":
-        setTheme("dark");
-        break;
-      case "dark":
-        setTheme("light");
-        break;
-      default:
-        break;
-    }
-  };
-
-  const toggleTheme = () => {
-    //@ts-ignore
-    if (!document.startViewTransition) switchTheme();
-
-    //@ts-ignore
-    document.startViewTransition(switchTheme);
-  };
-
+  const toggleTheme = useToggleTheme();
 
   return (
     <Button
