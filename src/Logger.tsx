@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { useEffect } from "react";
 import { useDevice } from "@/hooks/useDevice";
 import { LinkData } from "@/config/links.config";
@@ -7,135 +6,143 @@ import { PersonalData } from "@/config/personal.config";
 import { skillList } from "@/config/skill.config";
 
 const COLORS = {
-  primary: '#667BC6',     // Dodger Blue
-  secondary: '#FFE893',   // Dark Gray
-  accent: '#FBB4A5',      // Forest Green
-  highlight: '#FB9EC6',   // Blue Violet
-  background: '#FFFFFF'   // White
+  primary: '#3B82F6',     // Blue
+  secondary: '#64748B',   // Slate
+  accent: '#10B981',      // Emerald
+  success: '#059669',     // Green
+  warning: '#F59E0B',     // Amber
+  text: '#FFFFFF',        // Gray 800
+  muted: '#6B7280',       // Gray 500
+  bg: '#FFFFFF'           // White
 };
 
 const STYLES = {
-  base: 'font-size: 14px; line-height: 1.6;',
-  heading: 'font-size: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;',
-  subheading: 'font-weight: 500;'
+  title: 'font-size: 16px; font-weight: 700; padding: 6px 12px; border-radius: 4px;',
+  heading: 'font-size: 14px; font-weight: 600; margin: 8px 0;',
+  body: 'font-size: 13px; line-height: 1.4;',
+  code: 'font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace; font-size: 13px;',
+  badge: 'padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;'
 };
 
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const commands = [
   {
     name: "help",
-    description: "Available commands",
-    action: () => {
-      // console.clear();
-      console.log(
-        `%c  Portfolio CLI  `,
-        `background: ${COLORS.primary}; color: ${COLORS.background}; ${STYLES.base} ${STYLES.heading} padding: 4px 8px;`
-      );
-      console.log('');
-      commands.forEach((cmd) => {
-        console.log(
-          `%c${cmd.name.padEnd(10)} %c${cmd.description}`,
-          `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`,
-          `color: ${COLORS.secondary}; ${STYLES.base}`
-        );
-      });
+    description: "Show available commands",
+    action: async () => {
+      console.group(`%c Portfolio Console`,
+        `${STYLES.title} background: ${COLORS.primary}; color: ${COLORS.bg};`);
+
+      console.log(`%cAvailable Commands:`,
+        `${STYLES.heading} color: ${COLORS.text};`);
+
+      for (const cmd of commands) {
+        await delay(150);
+        console.log(`%c${cmd.name}()%c - ${cmd.description}`,
+          `${STYLES.code} color: ${COLORS.accent}; font-weight: 600;`,
+          `${STYLES.body} color: ${COLORS.secondary};`);
+      };
+
+      console.groupEnd();
     },
   },
   {
     name: "about",
-    description: "Personal overview",
-    action: () => {
-      // console.clear();
-      console.log(
-        `%c${PersonalData.name} | ${PersonalData.title}`,
-        `color: ${COLORS.highlight}; ${STYLES.base} ${STYLES.heading}`
-      );
-      console.log('');
-      console.log(
-        `%c${PersonalData.description}`,
-        `color: ${COLORS.secondary}; ${STYLES.base}`
-      );
-      console.log('');
-      PersonalData.about.forEach((line, index) => {
-        console.log(
-          `%c${index + 1}. ${line}`,
-          `color: ${COLORS.primary}; ${STYLES.base}`
-        );
-      });
+    description: "Learn about me",
+    action: async () => {
+      console.group(`%c About Me`,
+        `${STYLES.title}; background: ${COLORS.primary}; color: ${COLORS.text};`);
+
+      console.log(`%c${PersonalData.name}`,
+        `${STYLES.heading} color: ${COLORS.text};`);
+
+      await delay(200);
+      console.log(`%c${PersonalData.title}`,
+        `${STYLES.badge} background: ${COLORS.accent}; color: ${COLORS.bg};`);
+
+      console.log(`\n%c${PersonalData.description}`,
+        `${STYLES.body} color: ${COLORS.secondary};`);
+
+      if (PersonalData.about?.length) {
+        await delay(300);
+        console.log(`\n%cHighlights:`,
+          `${STYLES.body} color: ${COLORS.text}; font-weight: 600;`);
+        for (const point of PersonalData.about) {
+          await delay(150);
+          console.log(`%c• ${point}`,
+            `${STYLES.body} color: ${COLORS.muted};`);
+        };
+      }
+
+      console.groupEnd();
     },
   },
   {
     name: "skills",
-    description: "Technical skills",
-    action: () => {
-      // console.clear();
-      console.log(
-        `%cTechnical Skills`,
-        `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`
-      );
-      console.log('');
-      Object.entries(skillList).forEach(([category, skills]) => {
-        console.log(
-          `%c${category}:`,
-          `color: ${COLORS.primary}; ${STYLES.base} ${STYLES.subheading}`
-        );
-        console.log(
-          `%c${skills.join(' • ')}`,
-          `color: ${COLORS.secondary}; ${STYLES.base}`
-        );
-        console.log('');
-      });
+    description: "View technical skills",
+    action: async () => {
+      console.group(`%c Skills`,
+        `${STYLES.title}; background: ${COLORS.primary}; color: ${COLORS.text};`);
+
+      for (const [category, skills] of Object.entries(skillList)) {
+        await delay(200);
+        console.log(`%c${category}`,
+          `${STYLES.body} color: ${COLORS.text}; font-weight: 600;`);
+        console.log(`%c${skills.join(' • ')}`,
+          `${STYLES.body} color: ${COLORS.secondary}; margin-left: 12px;`);
+        console.log('')
+      }
+
+      console.groupEnd();
     },
   },
   {
     name: "projects",
-    description: "Featured work",
-    action: () => {
-      // console.clear();
-      console.log(
-        `%cProjects`,
-        `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`
-      );
-      console.log('');
-      ProjectData.forEach((project, index) => {
-        console.log(
-          `%c${index + 1}. ${project.title}`,
-          `color: ${COLORS.highlight}; ${STYLES.base} ${STYLES.subheading}`
-        );
-        console.log(
-          `%c${project.description}`,
-          `color: ${COLORS.primary}; ${STYLES.base}`
-        );
-        console.log(
-          `%cTech: ${project.techStack.join(' • ')}`,
-          `color: ${COLORS.secondary}; ${STYLES.base}`
-        );
-        console.log(
-          `%c🔗 ${project.liveLink}`,
-          `color: ${COLORS.accent}; ${STYLES.base}`
-        );
-        console.log('');
-      });
+    description: "Browse my projects",
+    action: async () => {
+      console.group(`%c Projects`,
+        `${STYLES.title}; background: ${COLORS.primary}; color: ${COLORS.text};`);
+
+      for (const project of ProjectData) {
+        await delay(300);
+        console.group(`%c${project.title}`,
+          `${STYLES.body} color: ${COLORS.text}; font-weight: 600;`);
+
+        console.log(`%c${project.description}`,
+          `${STYLES.body} color: ${COLORS.secondary};`);
+
+        console.log(`%cTech Stack: %c${project.techStack.join(', ')}`,
+          `${STYLES.body} color: ${COLORS.text}; font-weight: 500;`,
+          `${STYLES.body} color: ${COLORS.muted};`);
+
+        if (project.liveLink) {
+          console.log(`%c🔗 ${project.liveLink}`,
+            `${STYLES.body} color: ${COLORS.accent}; text-decoration: underline;`);
+        }
+
+        console.groupEnd();
+      };
+
+      console.groupEnd();
     },
   },
   {
     name: "contact",
-    description: "Connect with me",
-    action: () => {
-      // console.clear();
-      console.log(
-        `%cContact`,
-        `color: ${COLORS.accent}; ${STYLES.base} ${STYLES.heading}`
-      );
-      console.log('');
-      Object.entries(LinkData).forEach(([platform, link]) => {
+    description: "Get in touch",
+    action: async () => {
+      console.group(`%c Contact`,
+        `${STYLES.title}; background: ${COLORS.primary}; color: ${COLORS.text};`);
+
+      for (const [platform, link] of Object.entries(LinkData)) {
+        await delay(150);
         const url = typeof link === 'string' ? link : link.link;
-        console.log(
-          `%c${platform.toUpperCase()}: %c${url}`,
-          `color: ${COLORS.primary}; ${STYLES.base} ${STYLES.subheading}`,
-          `color: ${COLORS.secondary}; ${STYLES.base}`
-        );
-      });
+        console.log(`%c${platform.charAt(0).toUpperCase() + platform.slice(1)}: %c${url}`,
+          `${STYLES.body} color: ${COLORS.text}; font-weight: 500;`,
+          `${STYLES.body} color: ${COLORS.accent}; text-decoration: underline;`);
+      };
+
+      console.groupEnd();
     },
   },
   {
@@ -143,10 +150,8 @@ const commands = [
     description: "Clear console",
     action: () => {
       console.clear();
-      console.log(
-        `%cConsole cleared`,
-        `color: ${COLORS.secondary}; ${STYLES.base}`
-      );
+      console.log(`%c Console cleared`,
+        `${STYLES.body} color: ${COLORS.success};`);
     },
   },
 ];
@@ -156,45 +161,34 @@ const Logger = () => {
 
   useEffect(() => {
     if (isMobile) return;
+    console.clear();
+    // Clean welcome message
+    console.log(`%c Welcome to ${PersonalData.name}'s Portfolio`,
+      `${STYLES.title} background: ${COLORS.primary}; color: ${COLORS.bg};`);
 
-    // Welcome Message
-    console.log(
-      `%c${PersonalData.name}'s Portfolio CLI`,
-      `color: ${COLORS.background}; background: ${COLORS.primary}; ${STYLES.base} ${STYLES.heading} padding: 4px 8px;`
-    );
+    console.log(`%cInteractive portfolio console - type help() to get started`,
+      `${STYLES.body} color: ${COLORS.secondary}; font-style: italic;`);
 
-    console.log(`
-      ██╗███╗   ███╗                               
-      ██║████╗ ████║                               
-      ██║██╔████╔██║                               
-      ██║██║╚██╔╝██║                               
-      ██║██║ ╚═╝ ██║                               
-      ╚═╝╚═╝     ╚═╝                               
-       █████╗ ██████╗ ██╗████████╗██╗   ██╗ █████╗ 
-      ██╔══██╗██╔══██╗██║╚══██╔══╝╚██╗ ██╔╝██╔══██╗
-      ███████║██║  ██║██║   ██║    ╚████╔╝ ███████║
-      ██╔══██║██║  ██║██║   ██║     ╚██╔╝  ██╔══██║
-      ██║  ██║██████╔╝██║   ██║      ██║   ██║  ██║
-      ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝
-      `)
+    console.log(''); // Empty line for spacing
 
-    // Hint Message
-    console.log(
-      `💡 %cType 'help' to explore commands`,
-      `color: ${COLORS.secondary}; ${STYLES.base}`
-    );
-
-    // Dynamically register commands
+    // Register commands globally
     const commandMap = commands.reduce((acc, cmd) => {
       acc[cmd.name] = cmd.action;
       return acc;
     }, {} as Record<string, () => void>);
 
+    // Add commands to window object
     Object.assign(window, commandMap);
+
+    // Show quick hint
+    setTimeout(() => {
+      console.log(`%c💡 Quick tip: Try typing about() or projects()`,
+        `${STYLES.body} color: ${COLORS.warning}; background: #45b7d1; padding: 4px 8px; border-radius: 4px;`);
+    }, 1000);
 
   }, [isMobile]);
 
-  return null; // no rerending
+  return null;
 };
 
 export default Logger;
