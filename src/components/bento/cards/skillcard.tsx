@@ -48,7 +48,6 @@ const slugs = ["typescript",
   "webpack",
   "shadcnui",
   "go",
-  "socket.io",
   "graphql",
   "solana",
   "ethereum"
