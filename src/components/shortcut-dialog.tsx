@@ -18,8 +18,8 @@ const ShortcutsDialog = ({
 
     const keyboardShortcuts = [
         { key: ['m', 'or', 'M'], action: 'Toggle Dark/Light Mode' },
-        { key: ['p', 'or', 'P'], action: 'Go to Projects Page' },
         { key: ['h', 'or', 'H'], action: 'Go to Home Page' },
+        { key: ['p', 'or', 'P'], action: 'Go to Projects Page' },
         { key: ['a', 'or', 'A'], action: 'Go to About Page' },
         { key: ['ctrl', '+', '/'], action: 'Show Shortcuts' },
         { key: ['Backspace'], action: 'Go Back  <- ' },
@@ -27,7 +27,7 @@ const ShortcutsDialog = ({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-lg border-0 bg-background/80 backdrop-blur-lg shadow-2xl">
+            <DialogContent className="sm:max-w-lg border-0 bg-white/80 dark:bg-black/40 backdrop-blur-lg shadow-xl rounded-3xl">
                 <DialogHeader className="text-center pb-2">
                     <DialogTitle className="text-xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                         Keyboard Shortcuts
@@ -39,20 +39,23 @@ const ShortcutsDialog = ({
 
                 <div className="space-y-3 py-2">
                     {keyboardShortcuts.map((shortcut, index) => (
-                        <div key={index} className="flex items-center justify-between group hover:bg-muted/30 rounded-lg px-3 py-2.5 transition-all duration-200 hover:shadow-sm">
+                        <div key={index} className="flex items-center justify-between group hover:bg-muted/30 rounded-lg px-3 py-2.5 transition-all duration-200 hover:shadow-sm cursor-default">
+                            <span className="text-sm text-foreground/70 group-hover:text-foreground transition-colors duration-200 font-medium">
+                                {shortcut.action}
+                            </span>
                             <div className="flex items-center space-x-2">
                                 {shortcut.key.map((key, idx) => (
                                     <ButtonUI key={idx} keyName={key} />
                                 ))}
                             </div>
-                            <span className="text-sm text-foreground/70 group-hover:text-foreground transition-colors duration-200 font-medium">
-                                {shortcut.action}
-                            </span>
                         </div>
                     ))}
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-border/30">
+                    <p className="text-xs text-center text-muted-foreground/80 mb-4">
+                        💡 Easter egg → try opening devtool console window
+                    </p>
                     <p className="text-xs text-center text-muted-foreground/60 flex items-center justify-center gap-2">
                         Press <EscKey /> to close
                     </p>
