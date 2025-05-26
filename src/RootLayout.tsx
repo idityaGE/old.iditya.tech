@@ -2,6 +2,7 @@ import { Suspense, lazy, useCallback, useEffect, useState } from "react";
 import { Outlet, ScrollRestoration, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/navbar/Navbar";
 import { useToggleTheme } from "@/hooks/useToggleTheme";
+import ShortcutsDialog from "@/components/shortcut-dialog";
 const Logger = lazy(() => import("./Logger"));
 
 const RootLayout = () => {
@@ -9,21 +10,31 @@ const RootLayout = () => {
   const toggleTheme = useToggleTheme();
   const [isProjectPage, setIsProjectPage] = useState(false);
   const navigate = useNavigate()
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
-    if (event.key === 'm') {
+    if (event.key === 'm' || event.key === 'M') {
       event.preventDefault();
-      console.log('M key pressed');
       toggleTheme();
-    } else if (event.key === 'p') {
+    } else if (event.key === 'p' || event.key === 'P') {
       event.preventDefault();
       navigate('/projects');
-    } else if (event.key === 'h') {
+    } else if (event.key === 'h' || event.key === 'H') {
       event.preventDefault();
       navigate('/');
-    } else if (event.key === 'a') {
+    } else if (event.key === 'a' || event.key === 'A') {
       event.preventDefault();
       navigate('/about');
+    } else if (event.ctrlKey && event.key === '/') {
+      event.preventDefault();
+      setShowShortcuts(prev => !prev);
+    } else if (event.key === 'Backspace') {
+      event.preventDefault();
+      if (showShortcuts) {
+        setShowShortcuts(false);
+      } else {
+        navigate(-1);
+      }
     }
   }, [toggleTheme])
 
@@ -55,6 +66,7 @@ const RootLayout = () => {
         <div className="flex-grow mx-1">
           <Outlet />
         </div>
+        <ShortcutsDialog open={showShortcuts} onOpenChange={setShowShortcuts} />
       </div>
     </>
   );
