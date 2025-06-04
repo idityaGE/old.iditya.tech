@@ -10,6 +10,7 @@ const Layout = () => {
       <div className="flex-grow mt-20 md:mt-20 p-3 md:p-5">
         <Outlet />
       </div>
+
       <footer className="mt-5 text-sm px-1 md:px-5">
         <Separator />
         <p className="font-[300] px-2 flex justify-between items-center h-8">

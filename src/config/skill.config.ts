@@ -1,15 +1,18 @@
 export const skillList = {
   Librarys: [
-    "React", "Next.js", "TailwindCSS", "SCSS", "ShadCN UI", "Redux", "Recoil", "TanStack Query", "Turborepo", "Motion", "Three.js", "ESLint", "Vitest", "Jest", "Cypress", "Socket.io", "Hugging Face 🤗", "LangChain 🔗", "Crew AI"
+    "React", "Next.js", "Expo", "TailwindCSS", "SCSS", "ShadCN UI", "Redux", "Recoil", "TanStack Query", "Turborepo", "Motion", "Three.js", "ESLint", "Vitest", "Jest", "Cypress", "Socket.io", "Hugging Face 🤗", "LangChain 🔗", "Crew AI"
   ],
   "Javascript runtime": [
     "Node.js", "Bun", "Deno", "Edge runtime (Vercel)", "CF Worker",
   ],
   Backend: [
-    "Hono js", "Express", "GraphQL", "Go", "Appwrite", "Supabase", "Swagger", "websocket", "WebRTC"
+    "Hono js", "Express", "GraphQL", "Go", "Appwrite", "Supabase", "Swagger", "websocket", "WebRTC", "Appwrite"
   ],
   Database: [
     "PostgreSQL", "MongoDB", "MySQL", "SQLite", "Redis", "ChromaDB", "Pinecone"
+  ],
+  "Web 3": [
+    "Web3.js", "@solana/web3.js", "Solana", "Ethereum", "Solidity" 
   ],
   ORM: [
     "Prisma", "Mongoose", "Drizzle"

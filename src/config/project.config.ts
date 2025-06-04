@@ -1,5 +1,25 @@
 export const ProjectData = [
   {
+    title: "Hyper Digital",
+    type: "freelance",
+    slug: "hyperdigital",
+    description: "A full-service digital agency offering web development, mobile applications, UI/UX design, and digital marketing solutions. We help businesses transform their digital presence with cutting-edge technology and strategic expertise tailored to their unique needs and goals.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961458/Screenshot_2025-04-05_195352_txevuu.png",
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961456/Screenshot_2025-04-05_195334_elsa83.png",
+    ],
+    liveLink: "https://www.hyperdigital.in/",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Cal.com",
+      "Node.js",
+      "Nodemailer",
+      "Motion",
+      "shadcn ui",
+    ]
+  },
+  {
     title: "Blind Chat",
     type: "personal",
     slug: "blind-chat",
@@ -22,6 +42,26 @@ export const ProjectData = [
     ]
   },
   {
+    title: "Solana Token Launchpad",
+    type: "personal",
+    slug: "solana-token-launchpad",
+    description: "A powerful web application that enables users to launch their own tokens on the Solana blockchain with complete metadata support.",
+    images: [
+      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1742220433/Screenshot_2025-03-17_142015_wbvw1o.png",
+    ],
+    githubLink: "https://github.com/idityaGE/Solana-Token-Lauchpad",
+    liveLink: "https://solana-token-lauchpad.vercel.app/",
+    techStack: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Shadcn",
+      "Solana Web3.js",
+      "Solana SPL Token",
+      "Anza Wallet Adapter",
+    ]
+  },
+  {
     title: "BloomKnot",
     type: "freelance",
     slug: "bloomknot",
@@ -40,26 +80,6 @@ export const ProjectData = [
       "Nodemailer",
       "Prisma",
       "Postgres",
-      "shadcn ui",
-    ]
-  },
-  {
-    title: "Hyper Digital",
-    type: "freelance",
-    slug: "hyperdigital",
-    description: "A full-service digital agency offering web development, mobile applications, UI/UX design, and digital marketing solutions. We help businesses transform their digital presence with cutting-edge technology and strategic expertise tailored to their unique needs and goals.",
-    images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961458/Screenshot_2025-04-05_195352_txevuu.png",
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1743961456/Screenshot_2025-04-05_195334_elsa83.png",
-    ],
-    liveLink: "https://www.hyperdigital.in/",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "Cal.com",
-      "Node.js",
-      "Nodemailer",
-      "Motion",
       "shadcn ui",
     ]
   },
@@ -108,26 +128,6 @@ export const ProjectData = [
       "Solana Web3.js",
       "Solana SPL Token",
       "bs58",
-    ]
-  },
-  {
-    title: "Solana Token Launchpad",
-    type: "personal",
-    slug: "solana-token-launchpad",
-    description: "A powerful web application that enables users to launch their own tokens on the Solana blockchain with complete metadata support.",
-    images: [
-      "https://res.cloudinary.com/dwdbqwqxk/image/upload/v1742220433/Screenshot_2025-03-17_142015_wbvw1o.png",
-    ],
-    githubLink: "https://github.com/idityaGE/Solana-Token-Lauchpad",
-    liveLink: "https://solana-token-lauchpad.vercel.app/",
-    techStack: [
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Shadcn",
-      "Solana Web3.js",
-      "Solana SPL Token",
-      "Anza Wallet Adapter",
     ]
   },
   {
