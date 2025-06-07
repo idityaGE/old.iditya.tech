@@ -48,7 +48,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
         setData(null);
       });
   }, [iconSlugs]);
-
+  
   const renderedIcons = useMemo(() => {
     if (!data) return null;
 
@@ -64,7 +64,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
         justifyContent: "center",
         alignItems: "center",
         width: "96%",
-        paddingTop: 20,
+        paddingTop: 14,
       },
     },
     options: {
