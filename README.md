@@ -6,7 +6,7 @@ A clean and modern portfolio built with React, designed for developers and creat
 
 This portfolio template combines sleek design with developer-friendly features. It leverages React and react-router-dom for seamless navigation, with Framer Motion powering smooth animations throughout the experience.
 
-![Homepage hero section with animated elements](https://ik.imagekit.io/nnp1iszdfe/images/old.iditya.tech_full-crop.png?updatedAt=1750183963758)
+![Homepage hero section with animated elements](https://ik.imagekit.io/nnp1iszdfe/old-portfolio/images/old.iditya.tech_full-crop.png?updatedAt=1750186732625)
 
 The minimalist design puts your work and skills at the forefront, while thoughtful interactions create a memorable browsing experience for visitors.
 
@@ -16,19 +16,19 @@ The minimalist design puts your work and skills at the forefront, while thoughtf
 
 Press Ctrl + / to access a complete list of keyboard shortcuts. Navigate quickly between sections, toggle theme settings, or access hidden features without touching your mouse.
 
-![Keyboard shortcuts overlay](https://ik.imagekit.io/nnp1iszdfe/images/old.iditya.tech_shortcuts.png?updatedAt=1750183964911)
+![Keyboard shortcuts overlay](https://ik.imagekit.io/nnp1iszdfe/old-portfolio/images/old.iditya.tech_shortcuts.png?updatedAt=1750186732731)
 
 ### 💻 Developer Console
 
 For the tech-curious visitors, I've included a CLI-like interaction system in the browser's DevTools console. Visitors can type commands like help(), about(), or contact() to navigate and learn more.
 
-![Developer console with custom commands](https://ik.imagekit.io/nnp1iszdfe/images/old.iditya.tech_cli.png?updatedAt=1750183964054)
+![Developer console with custom commands](https://ik.imagekit.io/nnp1iszdfe/old-portfolio/images/old.iditya.tech_cli.png?updatedAt=1750186732627)
 
 ### 🔍 Project Showcase
 
 Each project gets its own dedicated page with support for Markdown content, allowing for rich descriptions of your work complete with images, lists, and formatted text.
 
-![Project details page with markdown content](https://ik.imagekit.io/nnp1iszdfe/images/old.iditya.tech_project_details.png?updatedAt=1750183964347)
+![Project details page with markdown content](https://ik.imagekit.io/nnp1iszdfe/old-portfolio/images/old.iditya.tech_project_details.png?updatedAt=1750186732686)
 
 ### 📱 Responsive Design
 
